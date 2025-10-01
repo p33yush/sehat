@@ -1,0 +1,296 @@
+/* Kerala Migrant Health Records - Admin Login Page Theme */
+
+:root{
+    --accent: #017e7e;
+    --card-bg: #ffffff;
+    --muted: #64748b;
+    --soft: #f0fdfa;
+    --shadow: 0 8px 30px rgba(1, 126, 126, 0.15);
+    --radius: 12px;
+    --glass: rgba(1, 126, 126, 0.12);
+}
+
+html,body{
+    height: 100%;
+    margin: 0;
+    font-family: 'Inter', "Segoe UI", Roboto, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f0fdfa 0%, #e6fffa 100%);
+    background-attachment: fixed;
+    padding: 48px 16px;
+    box-sizing: border-box;
+}
+
+/* Header (logo + title + language) */
+.site-header{
+    text-align: center;
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand{
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.logo{
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: #017e7e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.title-block h1{
+    margin: 0;
+    color: #017e7e;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.title-block p{
+    margin: 0;
+    color: #64748b;
+    font-size: 13px;
+    opacity: 0.95;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+}
+
+/* language selector pill */
+.lang-select {
+    position: relative;
+    display: inline-block;
+    margin-top: 6px;
+}
+
+.lang-select select {
+    appearance: none;
+    background: rgba(1, 126, 126, 0.1);
+    color: #017e7e;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid rgba(1, 126, 126, 0.3);
+    border-radius: 8px;
+    padding: 8px 36px 8px 32px;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.lang-select select:hover {
+    background: rgba(1, 126, 126, 0.15);
+    border-color: rgba(1, 126, 126, 0.5);
+}
+
+.lang-select select:focus {
+    outline: none;
+    border-color: #017e7e;
+    background: rgba(1, 126, 126, 0.2);
+}
+
+.lang-select::after {
+    content: "▼";
+    font-size: 11px;
+    color: #017e7e;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.lang-select::before {
+    content: "🌐";
+    font-size: 14px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #017e7e;
+    pointer-events: none;
+}
+
+/* Card */
+.card {
+    width: 560px;
+    max-width: calc(100% - 32px);
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 26px;
+    box-shadow: var(--shadow);
+    box-sizing: border-box;
+    border: 1px solid rgba(1, 126, 126, 0.1);
+}
+
+/* tabs */
+.tabs {
+    display: flex;
+    justify-content: center;
+    background: #f0fdfa;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 4px;
+}
+
+.tabs h2 {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    color: #017e7e;
+    letter-spacing: 0.5px;
+    margin: 0;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.form-area{
+    padding: 4px 6px 2px;
+    display: flex;
+    flex-direction: column;
+}
+
+.heading{
+    text-align: center;
+    width: 100%;
+    margin: 12px 0 24px;
+}
+
+.heading h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: #017e7e;
+}
+
+.heading p{ 
+    margin: 0 0 0; 
+    color: var(--muted); 
+    font-size: 13px; 
+}
+
+/* form controls */
+.field{
+    margin: 10px 0;
+}
+
+label{
+    display: block;
+    font-size: 13px;
+    color: #374151;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #e6eef5;
+    background: #fbfdff;
+    box-sizing: border-box;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+select:focus {
+    border-color: #017e7e;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(1, 126, 126, 0.1);
+}
+
+select { 
+    -webkit-appearance: none; 
+    appearance: none; 
+    background-image: none; 
+}
+
+.btn{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: all 0.3s ease;
+}
+
+.btn.primary{
+    background: linear-gradient(135deg, #017e7e 0%, #0f766e 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(1, 126, 126, 0.3);
+}
+
+.btn.primary:hover {
+    background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(1, 126, 126, 0.4);
+}
+
+.small-note{
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 12px;
+    font-weight: 500;
+}
+
+.footer{
+    margin-top: 16px;
+    text-align: center;
+    color: #64748b;
+    font-size: 13px;
+}
+
+@media (max-width: 640px){
+    .card{ 
+        padding: 18px; 
+    }
+    .logo{ 
+        width: 48px; 
+        height: 48px;
+    }
+    .brand{
+        gap: 10px;
+    }
+}

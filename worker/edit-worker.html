@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Worker Details - Kerala Health Records</title>
+    <link href="worker-dashboard.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="dashboard-header">
+      <div class="header-left">
+        <div class="logo">
+          <div class="logo-icon">
+            <img
+              src="../assets/finallogo.png"
+              alt="Kerala Health Records Logo"
+              class="logo-image"
+            />
+          </div>
+          <div class="logo-text">
+            <h1>SEHAT</h1>
+            <p>Digital Health Management System</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <!-- Back Button -->
+        <button
+          class="btn btn-secondary"
+          onclick="goBack()"
+          style="margin-right: 15px"
+        >
+          ← Back to Dashboard
+        </button>
+
+        <!-- User Profile -->
+        <div class="user-profile">
+          <div class="user-avatar">👤</div>
+          <div class="user-info">
+            <span class="user-role">Migrant Worker</span>
+            <span class="user-name">Ansh</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="edit-worker-main">
+      <div class="edit-container">
+        <div class="edit-header">
+          <h2>✏ Edit Worker Details</h2>
+          <p>Update your personal and work information</p>
+        </div>
+
+        <form id="editWorkerForm" class="edit-form">
+          <!-- Personal Information Section -->
+          <div class="form-section">
+            <h3>Personal Information</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="fullName">Full Name *</label>
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  value="Ansh Kumar"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="dateOfBirth">Date of Birth *</label>
+                <input
+                  type="date"
+                  id="dateOfBirth"
+                  name="dateOfBirth"
+                  value="1996-03-15"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" value="28" readonly />
+              </div>
+
+              <div class="form-group">
+                <label for="gender">Gender *</label>
+                <select id="gender" name="gender" required>
+                  <option value="Male" selected>Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="bloodGroup">Blood Group *</label>
+                <select id="bloodGroup" name="bloodGroup" required>
+                  <option value="A+">A+</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                  <option value="AB+">AB+</option>
+                  <option value="AB-">AB-</option>
+                  <option value="O+" selected>O+</option>
+                  <option value="O-">O-</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="maritalStatus">Marital Status *</label>
+                <select id="maritalStatus" name="maritalStatus" required>
+                  <option value="Single">Single</option>
+                  <option value="Married" selected>Married</option>
+                  <option value="Divorced">Divorced</option>
+                  <option value="Widowed">Widowed</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Information Section -->
+          <div class="form-section">
+            <h3>Contact Information</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="mobile">Mobile Number *</label>
+                <input
+                  type="tel"
+                  id="mobile"
+                  name="mobile"
+                  value="+91 98765 43210"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="emergencyContact">Emergency Contact *</label>
+                <input
+                  type="tel"
+                  id="emergencyContact"
+                  name="emergencyContact"
+                  value="+91 87654 32109"
+                  required
+                />
+              </div>
+
+              <div class="form-group full-width">
+                <label for="address">Current Address *</label>
+                <textarea id="address" name="address" rows="3" required>
+Worker Camp, Kochi Construction Site</textarea
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="homeState">Home State *</label>
+                <select id="homeState" name="homeState" required>
+                  <option value="Bihar" selected>Bihar</option>
+                  <option value="Uttar Pradesh">Uttar Pradesh</option>
+                  <option value="West Bengal">West Bengal</option>
+                  <option value="Odisha">Odisha</option>
+                  <option value="Jharkhand">Jharkhand</option>
+                  <option value="Madhya Pradesh">Madhya Pradesh</option>
+                  <option value="Rajasthan">Rajasthan</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Work Information Section -->
+          <div class="form-section">
+            <h3>Work Information</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="jobRole">Job Role *</label>
+                <select id="jobRole" name="jobRole" required>
+                  <option value="Construction Worker" selected>
+                    Construction Worker
+                  </option>
+                  <option value="Mason">Mason</option>
+                  <option value="Carpenter">Carpenter</option>
+                  <option value="Electrician">Electrician</option>
+                  <option value="Plumber">Plumber</option>
+                  <option value="Painter">Painter</option>
+                  <option value="Helper">Helper</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="workSite">Work Site *</label>
+                <input
+                  type="text"
+                  id="workSite"
+                  name="workSite"
+                  value="Kochi Construction Site"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="startDate">Start Date *</label>
+                <input
+                  type="date"
+                  id="startDate"
+                  name="startDate"
+                  value="2024-01-15"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="contractor">Contractor *</label>
+                <input
+                  type="text"
+                  id="contractor"
+                  name="contractor"
+                  value="ABC Construction Ltd."
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="workHours">Work Hours *</label>
+                <select id="workHours" name="workHours" required>
+                  <option value="8:00 AM - 5:00 PM" selected>
+                    8:00 AM - 5:00 PM
+                  </option>
+                  <option value="9:00 AM - 6:00 PM">9:00 AM - 6:00 PM</option>
+                  <option value="7:00 AM - 4:00 PM">7:00 AM - 4:00 PM</option>
+                  <option value="Night Shift">Night Shift</option>
+                  <option value="Flexible">Flexible</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="safetyTraining">Safety Training</label>
+                <input
+                  type="text"
+                  id="safetyTraining"
+                  name="safetyTraining"
+                  value="Completed (Nov 2024)"
+                  readonly
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Health Information Section -->
+          <div class="form-section">
+            <h3>Health Information</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="allergies">Allergies</label>
+                <input
+                  type="text"
+                  id="allergies"
+                  name="allergies"
+                  value="None known"
+                  placeholder="List any known allergies"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="chronicConditions">Chronic Conditions</label>
+                <input
+                  type="text"
+                  id="chronicConditions"
+                  name="chronicConditions"
+                  value="None"
+                  placeholder="List any chronic health conditions"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="medications">Current Medications</label>
+                <input
+                  type="text"
+                  id="medications"
+                  name="medications"
+                  value=""
+                  placeholder="List current medications"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="emergencyMedicalContact"
+                  >Emergency Medical Contact</label
+                >
+                <input
+                  type="tel"
+                  id="emergencyMedicalContact"
+                  name="emergencyMedicalContact"
+                  value="108"
+                  placeholder="Emergency medical contact number"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Actions -->
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" onclick="goBack()">
+              Cancel
+            </button>
+            <button type="button" class="btn btn-outline" onclick="resetForm()">
+              Reset
+            </button>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- Floating Health Camp Headlines -->
+    <div class="floating-headlines">
+      <div class="headlines-container">
+        <div class="headlines-content">
+          <div class="headline-item">
+            <span class="headline-icon">🏥</span>
+            <span class="headline-text"
+              >Free Health Camp at Kochi Construction Site - Dec 30, 2024</span
+            >
+          </div>
+          <div class="headline-item">
+            <span class="headline-icon">💉</span>
+            <span class="headline-text"
+              >Free Vaccination Drive for All Workers - Jan 5, 2025</span
+            >
+          </div>
+          <div class="headline-item">
+            <span class="headline-icon">🩺</span>
+            <span class="headline-text"
+              >Free Eye Checkup Camp - Jan 10, 2025</span
+            >
+          </div>
+          <div class="headline-item">
+            <span class="headline-icon">🦷</span>
+            <span class="headline-text"
+              >Free Dental Health Camp - Jan 15, 2025</span
+            >
+          </div>
+          <div class="headline-item">
+            <span class="headline-icon">❤</span>
+            <span class="headline-text"
+              >Free Heart Health Screening - Jan 20, 2025</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="edit-worker.js"></script>
+  </body>
+</html>

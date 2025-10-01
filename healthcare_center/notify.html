@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="notify.css" rel="stylesheet">
+  <title>Notification Popup</title>
+</head>
+<body>
+  <!-- Notification Bell -->
+  <!-- <div class="notification">🔔</div> -->
+
+  <!-- Modal -->
+  <div id="notificationModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Notifications</h2>
+
+      <!-- Example Messages -->
+      <div class="message">
+        A checkup is booked by Patient A.
+        <div class="actions">
+          <button class="btn btn-accept">Accept</button>
+          <button class="btn btn-reject">Reject</button>
+        </div>
+      </div>
+
+      <div class="message">
+        A checkup is booked by Patient B.
+        <div class="actions">
+          <button class="btn btn-accept">Accept</button>
+          <button class="btn btn-reject">Reject</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="notify.js"></script>
+</body>
+</html>

@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kerala Health Records - Worker Dashboard</title>
+    <link href="worker-dashboard.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="dashboard-header">
+      <div class="header-left">
+        <div class="logo">
+          <div class="logo-icon">
+            <img
+              src="../assets/finallogo.png"
+              alt="Kerala Health Records Logo"
+              class="logo-image"
+            />
+          </div>
+          <div class="logo-text">
+            <h1>SEHAT</h1>
+            <p>Digital Health Management System</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <!-- Language Selector -->
+        <div class="lang-select">
+          <div class="lang-trigger">
+            <!-- <span class="globe-icon">🌐</span> -->
+            <span class="lang-text">English</span>
+            <span class="chevron">▼</span>
+          </div>
+          <div class="lang-dropdown">
+            <div class="lang-option selected" data-value="en">
+              <span class="checkmark">✓</span>
+              <span>English</span>
+            </div>
+            <div class="lang-option" data-value="ml"><span>മലയാളം</span></div>
+            <div class="lang-option" data-value="hi"><span>हिन्दी</span></div>
+            <div class="lang-option" data-value="bn"><span>বাংলা</span></div>
+          </div>
+        </div>
+
+        <!-- Notifications -->
+        <div
+          class="notification-bell"
+          onclick="openPopup('notificationPopup')"
+          style="cursor: pointer"
+        >
+          <span class="bell-icon">🔔</span>
+          <span class="notification-badge" id="notificationCount">0</span>
+        </div>
+
+        <!-- User Profile -->
+        <div
+          class="user-profile"
+          onclick="openPopup('migrantWorkerPopup')"
+          style="cursor: pointer"
+        >
+          <div class="user-avatar">👤</div>
+          <div class="user-info">
+            <span class="user-role">Migrant Worker</span>
+            <span class="user-name">Ansh</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+      <div class="welcome-left">
+        <div class="worker-photo">
+          <div class="photo-placeholder">
+            <span class="photo-icon">📷</span>
+            <span class="photo-text">Worker Photo</span>
+          </div>
+        </div>
+        <div class="welcome-content">
+          <h2 id="welcomeTitle">Welcome, Loading...</h2>
+          <p id="welcomeInfo">Worker ID: Loading...</p>
+        </div>
+      </div>
+      <div class="action-buttons">
+        <button class="btn btn-primary" onclick="openPopup('viewRecordPopup')">
+          View Full Record
+        </button>
+        <button
+          class="btn btn-secondary"
+          onclick="openPopup('bookCheckupPopup')"
+        >
+          Book Checkup
+        </button>
+      </div>
+    </section>
+
+    <!-- Main Dashboard -->
+    <main class="dashboard-main">
+      <div class="dashboard-layout">
+        <!-- Left Poster Carousel -->
+        <div class="slideshow">
+          <img id="slide" src="" alt="Slideshow" />
+        </div>
+
+        <!-- Middle Content -->
+        <section class="content-section">
+          <!-- Row 1 -->
+          <div class="dashboard-row">
+            <div class="card health-status-card">
+              <div class="card-header">
+                <span class="card-icon">❤</span>
+                <h3>Health Status</h3>
+              </div>
+              <div class="card-content">
+                <div class="status-main">Healthy</div>
+                <p class="status-detail">Last checkup: 15 days ago</p>
+                <button class="status-btn">No Issues Found</button>
+              </div>
+            </div>
+
+            <div class="card next-appointment-card">
+              <div class="card-header">
+                <span class="card-icon">📅</span>
+                <h3>Next Appointment</h3>
+              </div>
+              <div class="card-content">
+                <div class="appointment-date">Dec 28</div>
+                <p class="appointment-type">Routine Health Checkup</p>
+                <div class="countdown">
+                  <span class="clock-icon">🕐</span>
+                  <span>In 5 days</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="dashboard-row">
+            <div class="card recent-records-card">
+              <div class="card-header">
+                <span class="card-icon">📄</span>
+                <h3>Recent Health Records</h3>
+                <p class="card-subtitle">
+                  Your latest medical checkups and reports
+                </p>
+              </div>
+              <div class="card-content">
+                <div class="records-list">
+                  <div class="record-item">
+                    <span class="record-icon">❤</span>
+                    <div class="record-details">
+                      <h4>General Checkup</h4>
+                      <p>Dr. സുമിത്ര നായർ</p>
+                      <span class="record-date">Dec 8, 2024</span>
+                    </div>
+                    <span class="status-badge normal">Normal</span>
+                  </div>
+                </div>
+                <div class="record-buttons">
+                  <button class="btn btn-primary" id="showRecordsBtn">
+                    Show Recent Records
+                  </button>
+                  <button class="btn btn-secondary" id="hideRecordsBtn">
+                    Hide Records
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="right-column">
+              <div class="card emergency-contacts-card">
+                <div class="card-header">
+                  <span class="card-icon">📞</span>
+                  <h3>Emergency Contacts</h3>
+                </div>
+                <div class="card-content">
+                  <div class="contact-item">
+                    <span class="contact-label">Ambulance</span>
+                    <span class="contact-number">108</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Right Chatbot -->
+        <aside class="chatbot-section">
+          <div class="chatbot-card">
+            <div class="chatbot-header">Chatbot</div>
+            <div class="chatbot-messages">
+              <!-- Messages will be added dynamically by JavaScript -->
+            </div>
+            <div class="chatbot-input">
+              <input type="text" placeholder="Type your message..." />
+              <button>Send</button>
+            </div>
+          </div>
+          <!-- <div class="chatbot-card" style="margin-top:20px; height:200px;">
+          <div class="chatbot-header">Work Location</div>
+          <div class="chatbot-messages">
+            <div class="chatbot-message bot">Hello, how can I help you?</div>
+          </div>
+          <div class="chatbot-input">
+            <h2>Work Location</h2>
+             <input type="text" placeholder="Type your message...">
+            <button>Send</button> 
+          </div>
+        </div>  -->
+        </aside>
+      </div>
+    </main>
+
+    <!-- Enhanced Notification Popup -->
+    <div id="notificationPopup" class="popup-overlay" style="display: none">
+      <div class="popup-content notification-modal">
+        <div class="modal-header">
+          <div class="header-content">
+            <i class="fas fa-bell"></i>
+            <h3>Notifications</h3>
+            <span class="notification-count-badge" id="modalNotificationCount">5</span>
+          </div>
+          <div class="header-actions">
+            <button class="btn btn-sm btn-outline" id="markAllReadBtn">
+              <i class="fas fa-check-double"></i> Mark All Read
+            </button>
+            <button class="close-btn" onclick="closePopup('notificationPopup')">&times;</button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="notification-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="urgent">Urgent</button>
+            <button class="filter-btn" data-filter="success">Success</button>
+            <button class="filter-btn" data-filter="info">Info</button>
+          </div>
+          <div id="notificationList" class="notification-list"></div>
+          <div class="notification-footer">
+            <button class="btn btn-outline btn-sm" id="clearAllBtn">
+              <i class="fas fa-trash"></i> Clear All
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Book Checkup Popup -->
+    <div id="bookCheckupPopup" class="popup-overlay">
+      <div class="popup-content book-checkup-popup">
+        <div class="popup-header">
+          <h3>📅 Book Health Checkup</h3>
+          <button class="close-btn" onclick="closePopup('bookCheckupPopup')">
+            &times;
+          </button>
+        </div>
+        <div class="popup-body">
+          <form id="bookCheckupForm">
+            <div class="form-group">
+              <label>Patient Information</label>
+              <div class="patient-info">
+                <div class="info-item">
+                  <span class="label">Name:</span>
+                  <span class="value" id="patientName">Ansh Kumar</span>
+                </div>
+                <div class="info-item">
+                  <span class="label">Worker ID:</span>
+                  <span class="value" id="workerId">KL2024-MW-00123</span>
+                </div>
+                <div class="info-item">
+                  <span class="label">Age:</span>
+                  <span class="value" id="patientAge">28 years</span>
+                </div>
+                <div class="info-item">
+                  <span class="label">Contact:</span>
+                  <span class="value" id="patientContact">+91 98765 43210</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="healthProvider">Health Provider *</label>
+              <select id="healthProvider" required>
+                <option value="">Select Health Provider</option>
+                <option value="primary">Primary Health Center</option>
+                <option value="community">Community Health Center</option>
+                <option value="district">District Hospital</option>
+                <option value="specialty">Specialty Clinic</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="doctor">Doctor *</label>
+              <select id="doctor" required>
+                <option value="">Select Doctor</option>
+                <option value="dr1">
+                  Dr. സുമിത്ര നായർ (General Physician)
+                </option>
+                <option value="dr2">
+                  Dr. Rajesh Kumar (Occupational Health)
+                </option>
+                <option value="dr3">
+                  Dr. Priya Sharma (Internal Medicine)
+                </option>
+                <option value="dr4">Dr. Anil Menon (Pulmonology)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="appointmentDate">Preferred Date *</label>
+              <input type="date" id="appointmentDate" required />
+            </div>
+
+            <div class="form-group">
+              <label for="timeSlot">Time Slot *</label>
+              <select id="timeSlot" required>
+                <option value="">Select Time Slot</option>
+                <option value="09:00-10:00">09:00 AM - 10:00 AM</option>
+                <option value="10:00-11:00">10:00 AM - 11:00 AM</option>
+                <option value="11:00-12:00">11:00 AM - 12:00 PM</option>
+                <option value="14:00-15:00">02:00 PM - 03:00 PM</option>
+                <option value="15:00-16:00">03:00 PM - 04:00 PM</option>
+                <option value="16:00-17:00">04:00 PM - 05:00 PM</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="reason">Reason for Checkup</label>
+              <textarea
+                id="reason"
+                placeholder="Describe your health concerns or reason for checkup..."
+              ></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="closePopup('bookCheckupPopup')"
+              >
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-primary">
+                Book Appointment
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- View Full Record Popup -->
+    <div id="viewRecordPopup" class="popup-overlay">
+      <div class="popup-content view-record-popup">
+        <div class="popup-header">
+          <h3>📄 Complete Medical History</h3>
+          <button class="close-btn" onclick="closePopup('viewRecordPopup')">
+            &times;
+          </button>
+        </div>
+        <div class="popup-body">
+          <div class="medical-history">
+            <div class="patient-summary">
+              <h4>Patient Summary</h4>
+              <div class="summary-grid">
+                <div class="summary-item">
+                  <span class="label">Name:</span>
+                  <span class="value" id="summaryName">Loading...</span>
+                </div>
+                <div class="summary-item">
+                  <span class="label">Worker ID:</span>
+                  <span class="value" id="summaryWorkerId">Loading...</span>
+                </div>
+                <div class="summary-item">
+                  <span class="label">Age:</span>
+                  <span class="value">28 years</span>
+                </div>
+                <div class="summary-item">
+                  <span class="label">Blood Group:</span>
+                  <span class="value">O+</span>
+                </div>
+                <div class="summary-item">
+                  <span class="label">Allergies:</span>
+                  <span class="value">None known</span>
+                </div>
+                <div class="summary-item">
+                  <span class="label">Chronic Conditions:</span>
+                  <span class="value">None</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="medical-records">
+              <h4>Medical Records</h4>
+              <div class="records-timeline">
+                <div class="record-entry">
+                  <div class="record-date">Dec 8, 2024</div>
+                  <div class="record-details">
+                    <h5>General Health Checkup</h5>
+                    <p><strong>Doctor:</strong> Dr. സുമിത്ര നായർ</p>
+                    <p><strong>Diagnosis:</strong> Normal health status</p>
+                    <p>
+                      <strong>Treatment:</strong> Routine checkup, no medication
+                      required
+                    </p>
+                    <p>
+                      <strong>Vital Signs:</strong> BP: 120/80, HR: 72, Temp:
+                      98.6°F
+                    </p>
+                  </div>
+                </div>
+
+                <div class="record-entry">
+                  <div class="record-date">Nov 15, 2024</div>
+                  <div class="record-details">
+                    <h5>Occupational Health Assessment</h5>
+                    <p><strong>Doctor:</strong> Dr. Rajesh Kumar</p>
+                    <p><strong>Diagnosis:</strong> Fit for construction work</p>
+                    <p><strong>Treatment:</strong> Safety training completed</p>
+                    <p>
+                      <strong>Notes:</strong> No respiratory issues detected
+                    </p>
+                  </div>
+                </div>
+
+                <div class="record-entry">
+                  <div class="record-date">Oct 20, 2024</div>
+                  <div class="record-details">
+                    <h5>Vaccination Update</h5>
+                    <p><strong>Doctor:</strong> Dr. Priya Sharma</p>
+                    <p>
+                      <strong>Vaccines:</strong> Tetanus booster, Hepatitis B
+                    </p>
+                    <p>
+                      <strong>Status:</strong> Up to date with all required
+                      vaccinations
+                    </p>
+                    <p><strong>Next Due:</strong> Tetanus - Oct 2025</p>
+                  </div>
+                </div>
+
+                <div class="record-entry">
+                  <div class="record-date">Sep 10, 2024</div>
+                  <div class="record-details">
+                    <h5>Minor Injury Treatment</h5>
+                    <p><strong>Doctor:</strong> Dr. Anil Menon</p>
+                    <p><strong>Diagnosis:</strong> Minor cut on left hand</p>
+                    <p>
+                      <strong>Treatment:</strong> Wound cleaning, bandage
+                      applied
+                    </p>
+                    <p>
+                      <strong>Follow-up:</strong> Healed completely in 5 days
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="emergency-contacts">
+              <h4>Emergency Contacts</h4>
+              <div class="contact-list">
+                <div class="contact-item">
+                  <span class="contact-type">Emergency Medical:</span>
+                  <span class="contact-number">108</span>
+                </div>
+                <div class="contact-item">
+                  <span class="contact-type">Site Health Officer:</span>
+                  <span class="contact-number">+91 98765 43210</span>
+                </div>
+                <div class="contact-item">
+                  <span class="contact-type">Family Contact:</span>
+                  <span class="contact-number">+91 87654 32109</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Migrant Worker Info Popup -->
+    <div id="migrantWorkerPopup" class="popup-overlay">
+      <div class="popup-content migrant-worker-popup">
+        <div class="popup-header">
+          <h3>👤 Migrant Worker Information</h3>
+          <div class="header-actions">
+            <button
+              class="btn btn-primary"
+              onclick="editWorkerDetails()"
+              style="margin-right: 10px"
+            >
+              ✏ Edit Details
+            </button>
+
+            <button
+              class="close-btn"
+              onclick="closePopup('migrantWorkerPopup')"
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+        <div class="popup-body">
+          <div class="worker-profile">
+            <div class="profile-header">
+              <div class="profile-photo-section">
+                <div class="profile-photo">
+                  <div class="photo-placeholder-large">
+                    <span class="photo-icon">📷</span>
+                    <span class="photo-text">Worker Photo</span>
+                  </div>
+                </div>
+                <div class="profile-info">
+                  <h4 id="workerName">Ansh Kumar</h4>
+                  <p id="workerRole">Construction Worker</p>
+                  <span class="worker-id" id="workerId"
+                    >ID: KL2024-MW-00123</span
+                  >
+                </div>
+              </div>
+              <div class="worker-qr-section">
+                <div class="qr-container">
+                  <div class="qr-label">Worker ID QR Code</div>
+                  <div class="qr-code" id="workerQRCode">
+                    <div class="qr-placeholder">
+                      <span class="qr-icon">📱</span>
+                      <span class="qr-text">Generating QR...</span>
+                    </div>
+                  </div>
+                  <div class="qr-text" id="qrWorkerId">Loading...</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="worker-details">
+              <div class="detail-section">
+                <h5>Personal Information</h5>
+                <div class="detail-grid">
+                  <div class="detail-item">
+                    <span class="label">Full Name:</span>
+                    <span class="value" id="fullName">Ansh Kumar</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="label">Date of Birth:</span>
+                    <span class="value" id="dateOfBirth">March 15, 1996</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="label">Age:</span>
+                    <span class="value" id="age">28 years</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="label">Gender:</span>
+                    <span class="value" id="gender">Male</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="label">Blood Group:</span>
+                    <span class="value" id="bloodGroup">O+</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="label">Marital Status:</span>
+                    <span class="value" id="maritalStatus">Married</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="detail-section">
+                <h5>Contact Information</h5>
+                <div class="detail-grid">
+                  <div class="detail-item">
+                    <span class="label">Mobile:</span>
+                    <span class="value" id="mobile">+91 98765 43210</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="label">Emergency Contact:</span>
+                    <span class="value" id="emergencyContact"
+                      >+91 87654 32109 (Wife)</span
+                    >
+                  </div>
+                  <div class="detail-item">
+                    <span class="label">Address:</span>
+                    <span class="value" id="address"
+                      >Worker Camp, Kochi Construction Site</span
+                    >
+                  </div>
+                  <div class="detail-item">
+                    <span class="label">Home State:</span>
+                    <span class="value" id="homeState">Bihar</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="detail-section">
+                <h5>Work Information</h5>
+                <div class="detail-grid">
+                  <div class="detail-item">
+                    <span class="label">Job Role:</span>
+                    <span class="value" id="jobRole">Construction Worker</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="label">Work Site:</span>
+                    <span class="value" id="workSite"
+                      >Kochi Construction Site</span
+                    >
+                  </div>
+                  <div class="detail-item">
+                    <span class="label">Start Date:</span>
+                    <span class="value" id="startDate">January 15, 2024</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="label">Contractor:</span>
+                    <span class="value" id="contractor"
+                      >ABC Construction Ltd.</span
+                    >
+                  </div>
+                  <div class="detail-item">
+                    <span class="label">Work Hours:</span>
+                    <span class="value" id="workHours">8:00 AM - 5:00 PM</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="label">Safety Training:</span>
+                    <span class="value" id="safetyTraining"
+                      >Completed (Nov 2024)</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="detail-section">
+                <h5>Health Status</h5>
+                <div class="detail-grid">
+                  <div class="detail-item">
+                    <span class="label">Current Status:</span>
+                    <span class="value status-healthy" id="currentStatus"
+                      >Healthy</span
+                    >
+                  </div>
+                  <div class="detail-item">
+                    <span class="label">Last Checkup:</span>
+                    <span class="value" id="lastCheckup">Dec 8, 2024</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="label">Next Appointment:</span>
+                    <span class="value" id="nextAppointment">Dec 28, 2024</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="label">Vaccination Status:</span>
+                    <span class="value status-updated" id="vaccinationStatus"
+                      >Up to Date</span
+                    >
+                  </div>
+                  <div class="detail-item">
+                    <span class="label">Allergies:</span>
+                    <span class="value" id="allergies">None known</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="label">Chronic Conditions:</span>
+                    <span class="value" id="chronicConditions">None</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Health Camp Headlines -->
+    <div class="floating-headlines">
+      <div class="headlines-container">
+        <div class="headlines-content">
+          <div class="headline-item">
+            <span class="headline-icon">🏥</span>
+            <span class="headline-text"
+              >Free Health Camp at Kochi Construction Site - Dec 30, 2024</span
+            >
+          </div>
+          <div class="headline-item">
+            <span class="headline-icon">💉</span>
+            <span class="headline-text"
+              >Free Vaccination Drive for All Workers - Jan 5, 2025</span
+            >
+          </div>
+          <div class="headline-item">
+            <span class="headline-icon">🩺</span>
+            <span class="headline-text"
+              >Free Eye Checkup Camp - Jan 10, 2025</span
+            >
+          </div>
+          <div class="headline-item">
+            <span class="headline-icon">🦷</span>
+            <span class="headline-text"
+              >Free Dental Health Camp - Jan 15, 2025</span
+            >
+          </div>
+          <div class="headline-item">
+            <span class="headline-icon">❤</span>
+            <span class="headline-text"
+              >Free Heart Health Screening - Jan 20, 2025</span
+            >
+          </div>
+          <div class="headline-item">
+            <span class="headline-icon">🩹</span>
+            <span class="headline-text"
+              >Free First Aid Training for Workers - Jan 25, 2025</span
+            >
+          </div>
+          <div class="headline-item">
+            <span class="headline-icon">🧠</span>
+            <span class="headline-text"
+              >Free Mental Health Counseling Session - Jan 30, 2025</span
+            >
+          </div>
+          <div class="headline-item">
+            <span class="headline-icon">🏥</span>
+            <span class="headline-text"
+              >Free Health Camp at Kochi Construction Site - Dec 30, 2024</span
+            >
+          </div>
+          <div class="headline-item">
+            <span class="headline-icon">💉</span>
+            <span class="headline-text"
+              >Free Vaccination Drive for All Workers - Jan 5, 2025</span
+            >
+          </div>
+          <div class="headline-item">
+            <span class="headline-icon">🩺</span>
+            <span class="headline-text"
+              >Free Eye Checkup Camp - Jan 10, 2025</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="worker-dashboard.js"></script>
+  </body>
+</html>

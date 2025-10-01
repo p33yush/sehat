@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="labreport.css" rel="stylesheet">
+  <title>Popup with Folder Upload</title>
+</head>
+<body>
+  <!-- Button -->
+  <button id="openModal" class="btn btn-primary">Upload Folder</button>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Upload a Folder</h2>
+      <input type="file" id="folderInput" webkitdirectory directory multiple>
+      <br><br>
+      <button id="submitBtn" class="btn btn-primary">Submit</button>
+      <button id="cancelBtn" class="btn btn-secondary">Cancel</button>
+    </div>
+  </div>
+  <script src="labreport.js"></script>
+</body>
+</html>

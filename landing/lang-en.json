@@ -1,0 +1,166 @@
+{
+  "topHeader": {
+    "title": "SMART ELECTRONIC HEALTH ASSESS FOR TRANSIENTS",
+    "adminBtn": "LOGIN AS ADMIN",
+    "registerBtn": "REGISTER/SIGN IN"
+  },
+  "mainHeader": {
+    "title": "SEHAT",
+    "nav": {
+      "about": "ABOUT US",
+      "prevention": "DISEASE PREVENTION",
+      "resources": "RESOURCES",
+      "support": "SUPPORT"
+    }
+  },
+  "hero": {
+    "title": "Health Records for Kerala's Migrant Population - Secure, Accessible, and Reliable",
+    "badge": "DIGITAL HEALTH SURVEILLANCE",
+    "quote": "One platform for better care, faster services, and healthier communities!",
+    "quoteAuthor": "- Kerala Health Department"
+  },
+  "steps": {
+    "title": "Migrant Health Record Management in 3 Easy Steps",
+    "step1": {
+      "title": "Register Migrant Worker",
+      "description": "Register migrant workers with comprehensive health information and contact details",
+      "button": "Register Now"
+    },
+    "step2": {
+      "title": "Mobile Health App",
+      "description": "Download our mobile app for easy access to health services, emergency alerts, and health information on-the-go",
+      "button": "Download App"
+    },
+    "step3": {
+      "title": "Prevent Disease Transmission",
+      "description": "Early detection and prevention of infectious diseases through comprehensive health monitoring",
+      "button": "Health Alerts"
+    }
+  },
+  "search": {
+    "title": "Search Nearest Health Centers for Migrant Workers",
+    "tabs": {
+      "district": "By District",
+      "pin": "By PIN Code"
+    },
+    "form": {
+      "districtLabel": "Select District",
+      "serviceLabel": "Health Service Type",
+      "pinLabel": "Enter PIN Code",
+      "pinPlaceholder": "Enter 6-digit PIN code",
+      "searchBtn": "Search Centers",
+      "districts": {
+        "select": "Select District",
+        "thiruvananthapuram": "Thiruvananthapuram",
+        "kochi": "Kochi",
+        "kozhikode": "Kozhikode",
+        "thrissur": "Thrissur",
+        "kannur": "Kannur",
+        "kollam": "Kollam",
+        "palakkad": "Palakkad"
+      },
+      "services": {
+        "all": "All Services",
+        "primary": "Primary Health Center",
+        "community": "Community Health Center",
+        "district": "District Hospital",
+        "specialty": "Specialty Clinic"
+      }
+    }
+  },
+  "sections": {
+    "healthCheckup": {
+      "title": "Free Health Checkup for Migrant Workers",
+      "description": "Comprehensive health screening and medical checkup services for all registered migrant workers at Government Health Centers"
+    },
+    "reportIssues": {
+      "title": "Report Health Issues & Symptoms",
+      "description": "Report any health symptoms, infectious disease signs, or medical emergencies among migrant workers for immediate health intervention"
+    },
+    "analytics": {
+      "title": "Health Data Analytics & Reporting",
+      "description": "Comprehensive health data analytics and reporting for public health officials, researchers, and policy makers to make informed decisions"
+    },
+    "updateRecords": {
+      "title": "Update Health Records",
+      "description": "Update and correct health information, medical history, and personal details in migrant health records"
+    },
+    "diseasePrevention": {
+      "title": "Disease Prevention & Surveillance",
+      "description": "Advanced health surveillance system to prevent infectious disease transmission among migrant populations. Early detection, contact tracing, and health monitoring for public health safety.",
+      "features": "Features: Real-time health monitoring, disease outbreak alerts, contact tracing, health risk assessment"
+    },
+    "sdg": {
+      "title": "SDG Achievement & Public Health Impact",
+      "description": "Our migrant health records system directly supports Sustainable Development Goals (SDGs) by ensuring universal health coverage, reducing health inequalities, and preventing disease transmission.",
+      "button": "Learn About SDG Impact"
+    },
+    "supportServices": {
+      "title": "Health Support Services",
+      "services": {
+        "addFamily": "Add Family Member",
+        "emergency": "Emergency Health Alert",
+        "helpline": "Health Helpline",
+        "certificate": "Medical Certificate",
+        "appointment": "Appointment Booking"
+      }
+    },
+    "latestUpdates": {
+      "title": "Latest Updates & Features",
+      "features": {
+        "monitoring": "Real-time health monitoring and disease surveillance system",
+        "analytics": "Advanced health data analytics and reporting dashboard",
+        "mobile": "Enhanced mobile app with offline capabilities",
+        "integration": "Seamless integration with government health systems"
+      }
+    },
+    "statistics": {
+      "title": "Kerala's Comprehensive Migrant Health Management",
+      "stats": {
+        "registered": "Registered Migrants",
+        "centers": "Health Centers",
+        "emergency": "Emergency Response",
+        "prevention": "Disease Prevention"
+      }
+    },
+    "partners": {
+      "title": "Our Partners & Collaborators",
+      "organizations": {
+        "keralaHealth": "Kerala Health Department",
+        "nationalHealth": "National Health Mission",
+        "whoIndia": "WHO India",
+        "unicef": "UNICEF",
+        "redCross": "Red Cross",
+        "localNGOs": "Local NGOs"
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "tabs": {
+        "general": "General",
+        "registration": "Registration",
+        "healthServices": "Health Services",
+        "emergency": "Emergency"
+      }
+    }
+  },
+  "footer": {
+    "platforms": "PLATFORMS",
+    "support": "SUPPORT",
+    "legal": "LEGAL",
+    "links": {
+      "mobileApp": "Mobile App",
+      "webPortal": "Web Portal",
+      "apiServices": "API Services",
+      "integrationGuide": "Integration Guide",
+      "helpCenter": "Help Center",
+      "contactUs": "Contact Us",
+      "documentation": "Documentation",
+      "community": "Community",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service",
+      "dataProtection": "Data Protection",
+      "compliance": "Compliance"
+    }
+  }
+}

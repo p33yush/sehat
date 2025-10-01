@@ -1,0 +1,429 @@
+/* Kerala Migrant Health Records - Login Page with Original Structure */
+
+/* Dynamic Registration Fields */
+#workerFields, #healthCenterFields {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#workerFields h3, #healthCenterFields h3 {
+  color: var(--accent);
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#workerFields h3::before {
+  content: "👷";
+  font-size: 18px;
+}
+
+#healthCenterFields h3::before {
+  content: "🏥";
+  font-size: 18px;
+}
+
+/* Field Groups */
+.field-group {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.field-group h4 {
+  margin: 0 0 1rem 0;
+  color: #2c5aa0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-bottom: 2px solid #2c5aa0;
+  padding-bottom: 0.5rem;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  resize: vertical;
+  min-height: 80px;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(1, 126, 126, 0.1);
+}
+
+/* Role-specific field styling */
+.role-field {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius);
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.role-field label {
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 8px;
+  display: block;
+}
+
+:root{
+    --accent: #017e7e;
+    --card-bg: #ffffff;
+    --muted: #64748b;
+    --soft: #f0fdfa;
+    --shadow: 0 8px 30px rgba(1, 126, 126, 0.15);
+    --radius: 12px;
+    --glass: rgba(1, 126, 126, 0.12);
+}
+
+html,body{
+    height: 100%;
+    margin: 0;
+    font-family: 'Inter', "Segoe UI", Roboto, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f0fdfa 0%, #e6fffa 100%);
+    background-attachment: fixed;
+    padding: 48px 16px;
+    box-sizing: border-box;
+}
+
+/* Header (logo + title + language) */
+.site-header{
+    text-align: center;
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand{
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.logo{
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: #017e7e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.title-block h1{
+    margin: 0;
+    color: #017e7e;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.title-block p{
+    margin: 0;
+    color: #64748b;
+    font-size: 13px;
+    opacity: 0.95;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+}
+
+/* language selector pill */
+.lang-select {
+    position: relative;
+    display: inline-block;
+    margin-top: 6px;
+}
+
+.lang-select select {
+    appearance: none;
+    background: rgba(1, 126, 126, 0.1);
+    color: #017e7e;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid rgba(1, 126, 126, 0.3);
+    border-radius: 8px;
+    padding: 8px 36px 8px 32px;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.lang-select select:hover {
+    background: rgba(1, 126, 126, 0.15);
+    border-color: rgba(1, 126, 126, 0.5);
+}
+
+.lang-select select:focus {
+    outline: none;
+    border-color: #017e7e;
+    background: rgba(1, 126, 126, 0.2);
+}
+
+.lang-select::after {
+    content: "▼";
+    font-size: 11px;
+    color: #017e7e;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.lang-select::before {
+    content: "🌐";
+    font-size: 14px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #017e7e;
+    pointer-events: none;
+}
+
+/* Card */
+.card {
+    width: 560px;
+    max-width: calc(100% - 32px);
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 26px;
+    box-shadow: var(--shadow);
+    box-sizing: border-box;
+    border: 1px solid rgba(1, 126, 126, 0.1);
+}
+
+/* tabs */
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    background: #f0fdfa;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.tabs button{
+    flex: 1;
+    max-width: 220px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: var(--soft);
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .18s ease;
+    color: #017e7e;
+}
+
+.tabs button.active{
+    background: linear-gradient(180deg, #ffffff, #f8fbfd);
+    box-shadow: 0 4px 12px rgba(1, 126, 126, 0.15);
+    transform: translateY(-2px);
+    color: #017e7e;
+}
+
+.tabs button:hover:not(.active) {
+    background: rgba(1, 126, 126, 0.1);
+}
+
+.form-area{
+    padding: 4px 6px 2px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Phone number styling */
+.phone-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #e6eef5;
+    border-radius: 10px;
+    background: #fbfdff;
+    overflow: hidden;
+}
+
+.phone-input .prefix {
+    padding: 12px 14px;
+    background: #f4f7fa;
+    font-size: 14px;
+    font-weight: 600;
+    color: #34495e;
+    border-right: 1px solid #e6eef5;
+}
+
+.phone-input input {
+    flex: 1;
+    border: none;
+    padding: 12px 14px;
+    font-size: 14px;
+    outline: none;
+    background: transparent;
+}
+
+.heading{
+    text-align: center;
+    width: 100%;
+    margin: 12px 0 24px;
+}
+
+.regHead {
+    text-align: center;
+}
+
+.regHead2{
+    color: #64748b;
+    text-align: center;
+    margin-top: -10px;
+}
+
+.heading h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: #017e7e;
+}
+
+.heading p{ 
+    margin: 0 0 0; 
+    color: var(--muted); 
+    font-size: 13px; 
+}
+
+/* form controls */
+.field{
+    margin: 10px 0;
+}
+
+label{
+    display: block;
+    font-size: 13px;
+    color: #374151;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #e6eef5;
+    background: #fbfdff;
+    box-sizing: border-box;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+select:focus {
+    border-color: #017e7e;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(1, 126, 126, 0.1);
+}
+
+select { 
+    -webkit-appearance: none; 
+    appearance: none; 
+    background-image: none; 
+}
+
+.btn{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: all 0.3s ease;
+}
+
+.btn.primary{
+    background: var(--accent);
+    color: white;
+}
+
+.btn.primary:hover {
+    background: #0f766e;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(1, 126, 126, 0.3);
+}
+
+.small-note{
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+.footer{
+    margin-top: 16px;
+    text-align: center;
+    color: #64748b;
+    font-size: 13px;
+}
+
+@media (max-width: 640px){
+    .card{ 
+        padding: 18px; 
+    }
+    .logo{ 
+        width: 48px; 
+        height: 48px;
+    }
+    .brand{
+        gap: 10px;
+    }
+}

@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Kerala Migrant Health Records - Digital Health Management System
+    </title>
+    <link href="land.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Top Header -->
+    <div class="top-header">
+      <div class="container">
+        <div class="top-header-content">
+          <div class="logo-text">
+            <img src="../assets/finallogo.png" alt="logo" />SMART ELECTRONIC HEALTH ACCESS FOR TRANSIENTs
+          </div>
+          <div class="top-header-actions">
+            <div class="language-selector">
+              <select>
+                <option value="en">English</option>
+                <option value="hi">हिन्दी</option>
+                <option value="ml">മലയാളം</option>
+                <option value="ta">தமிழ்</option>
+              </select>
+            </div>
+            <a href="../login/adminlogin.html" class="admin-btn"
+              >LOGIN AS ADMIN</a
+            >
+            <a href="../login/login.html" class="register-btn"
+              >REGISTER/SIGN IN</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo-section">
+            <span class="logo-text">
+              <img src="../assets/finallogo.png" alt="logo" />SEHAT
+            </span>
+          </div>
+          <nav class="main-nav">
+            <ul class="nav-list">
+              <li><a href="land.html" class="home-btn">HOME</a></li>
+              <li><a href="#about">ABOUT US</a></li>
+              <li><a href="#prevention">DISEASE PREVENTION</a></li>
+              <li><a href="#resources">RESOURCES</a></li>
+              <li><a href="#support">SUPPORT</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-left">
+            <h1>
+              Health Records for Kerala's Migrant Population - Secure,
+              Accessible, and Reliable
+            </h1>
+            <div class="achievement-badge">
+              <i class="fas fa-shield-alt"></i>
+              <span>DIGITAL HEALTH SURVEILLANCE</span>
+            </div>
+            <blockquote class="pm-quote">
+              "One platform for better care, faster services, and healthier
+              communities"
+              <cite>- Kerala Health Department</cite>
+            </blockquote>
+          </div>
+          <div class="hero-right">
+            <div class="kerala-map">
+              <div class="map-container">
+                <img src="../assets/Keral.png" alt="Kerala Map" class="map-image" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Health Record Management in 3 Easy Steps -->
+    <section class="vaccination-steps">
+      <div class="container">
+        <h2>Migrant Health Record Management in 3 Easy Steps</h2>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-icon">
+              <i class="fas fa-user-plus"></i>
+            </div>
+            <h3>Register Migrant Worker</h3>
+            <p>
+              Register migrant workers with comprehensive health information and
+              contact details
+            </p>
+            <button class="btn btn-primary">Register Now</button>
+          </div>
+          <div class="step-card">
+            <div class="step-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3>Mobile Health App</h3>
+            <p>
+              Download our mobile app for easy access to health services, emergency alerts, and health information on-the-go
+            </p>
+            <button class="btn btn-primary">Download App</button>
+          </div>
+          <div class="step-card">
+            <div class="step-icon">
+              <i class="fas fa-shield-virus"></i>
+            </div>
+            <h3>Prevent Disease Transmission</h3>
+            <p>
+              Early detection and prevention of infectious diseases through
+              comprehensive health monitoring
+            </p>
+            <button class="btn btn-primary">Health Alerts</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search Health Centers -->
+    <section id="resources" class="search-centers">
+      <div class="container">
+        <h2>Search Nearest Health Centers for Migrant Workers</h2>
+        <div class="search-tabs">
+          <button class="tab-btn active" data-tab="district">
+            By District
+          </button>
+          <button class="tab-btn" data-tab="pin">By PIN Code</button>
+        </div>
+        <div class="search-content">
+          <div class="tab-content active" id="district">
+            <div class="search-form">
+              <div class="form-group">
+                <label>Select District</label>
+                <select>
+                  <option>Select District</option>
+                  <option>Thiruvananthapuram</option>
+                  <option>Kochi</option>
+                  <option>Kozhikode</option>
+                  <option>Thrissur</option>
+                  <option>Kannur</option>
+                  <option>Kollam</option>
+                  <option>Palakkad</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Health Service Type</label>
+                <select>
+                  <option>All Services</option>
+                  <option>Primary Health Center</option>
+                  <option>Community Health Center</option>
+                  <option>District Hospital</option>
+                  <option>Specialty Clinic</option>
+                </select>
+              </div>
+              <button class="btn btn-primary" id="searchByDistrict" onclick="searchHealthCentersByDistrict()">Search Centers</button>
+            </div>
+          </div>
+          <div class="tab-content" id="pin">
+            <div class="search-form">
+              <div class="form-group">
+                <label>Enter PIN Code</label>
+                <input
+                  type="text"
+                  id="pinCode"
+                  placeholder="Enter 6-digit PIN code"
+                  maxlength="6"
+                  pattern="[0-9]{6}"
+                />
+              </div>
+              <div class="form-group">
+                <label>Health Service Type</label>
+                <select>
+                  <option>All Services</option>
+                  <option>Primary Health Center</option>
+                  <option>Community Health Center</option>
+                  <option>District Hospital</option>
+                  <option>Specialty Clinic</option>
+                </select>
+              </div>
+              <button class="btn btn-primary" id="searchByPin">
+                Search Centers
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Free Health Checkup for Migrants -->
+    <section class="precaution-dose">
+      <div class="container">
+        <div class="precaution-content">
+          <div class="precaution-left">
+            <h2>Free Health Checkup for Migrant Workers</h2>
+            <p>
+              Comprehensive health screening and medical checkup services for
+              all registered migrant workers at Government Health Centers
+            </p>
+          </div>
+          <div class="precaution-right">
+            <div class="vaccination-illustration">
+              <img src="../assets/checkup.jpg" alt="free health checkup" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Report Health Issues -->
+    <section class="side-effects">
+      <div class="container">
+        <div class="side-effects-content">
+          <div class="side-effects-left">
+            <div class="side-effects-illustration">
+              <img
+                src="../assets/reporthealthissues.jpg"
+                alt="report health issues"
+              />
+            </div>
+          </div>
+          <div class="side-effects-right">
+            <h2>Report Health Issues & Symptoms</h2>
+            <p>
+              Report any health symptoms, infectious disease signs, or medical
+              emergencies among migrant workers for immediate health
+              intervention
+            </p>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+
+    <!-- Health Data Analytics & Reporting -->
+    <section class="children-vaccination">
+      <div class="container">
+        <div class="children-content">
+          <div class="children-left">
+            <h2>Health Data Analytics & Reporting</h2>
+            <p>
+              Comprehensive health data analytics and reporting for public
+              health officials, researchers, and policy makers to make informed
+              decisions
+            </p>
+          </div>
+          <div class="children-right">
+            <div class="children-illustration">
+              <img
+                src="../assets/health data analytics.jpg"
+                alt="health data analytics"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Health Record Updates -->
+    <section class="date-correction">
+      <div class="container">
+        <div class="date-correction-content">
+          <div class="date-correction-left">
+            <div class="date-correction-illustration">
+              <img
+                src="../assets/updatehealthrrecords.jpg"
+                alt="update health records"
+              />
+            </div>
+          </div>
+          <div class="date-correction-right">
+            <h2>Update Health Records</h2>
+            <p>
+              Update and correct health information, medical history, and
+              personal details in migrant health records
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Disease Prevention & Surveillance -->
+    <section id="prevention" class="precaution-details">
+      <div class="container">
+        <div class="precaution-details-content">
+          <div class="precaution-details-left">
+            <h2>Disease Prevention & Surveillance</h2>
+            <p>
+              Advanced health surveillance system to prevent infectious disease
+              transmission among migrant populations. Early detection, contact
+              tracing, and health monitoring for public health safety.
+            </p>
+            <p>
+              Features: Real-time health monitoring, disease outbreak alerts,
+              contact tracing, health risk assessment
+            </p>
+          </div>
+          <div class="precaution-details-right">
+            <div class="precaution-details-illustration">
+              <img
+                src="../assets/diseasepreventionandsurvillance.jpg"
+                alt="disease prevention and surveillance"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SDG Achievement & Public Health Impact -->
+    <section class="abha-section">
+      <div class="container">
+        <h2>SDG Achievement & Public Health Impact</h2>
+        <p>
+          Our migrant health records system directly supports Sustainable
+          Development Goals (SDGs) by ensuring universal health coverage,
+          reducing health inequalities, and preventing disease transmission.
+        </p>
+        <div class="abha-diagram">
+          <div class="abha-flow">
+            <div class="flow-item">
+              <img
+                src="../assets/healthwellbeing1.png"
+                alt="healthwellbeing"
+                class="icon"
+                style="width: 150px; height: auto"
+              />
+              <span>Health & Well-being</span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item">
+              <img
+                src="../assets/inequalities.png"
+                alt="inequalities"
+                class="icon"
+                style="width: 150px; height: 100px"
+              />
+              <span>Reduced Inequalities</span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item">
+              <img
+                src="../assets/globalhealth1.png"
+                alt="globalhealth"
+                class="icon"
+                style="width: 150px; height: auto"
+              />
+              <span>Global Health</span>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary" id="sdgImpactBtn">
+          Learn About SDG Impact
+        </button>
+      </div>
+    </section>
+
+    <!-- Health Support Services -->
+    <section id="support" class="raise-issue">
+      <div class="container">
+        <h2>Health Support Services</h2>
+        <div class="issue-cards">
+          <div class="issue-card">
+            <img
+              src="../assets/addfamily.png"
+              alt="Add Family Member"
+              class="icon"
+              style="width: 200px; height: auto"
+            />
+            <h3>Add Family Member</h3>
+          </div>
+          <div class="issue-card">
+            <img
+              src="../assets/emergengyalert.png"
+              alt="emergency"
+              class="icon"
+              style="width: 200px; height: auto"
+            />
+            <h3>Emergency Health Alert</h3>
+          </div>
+          <div class="issue-card">
+            <img
+              src="../assets/helpline.png"
+              alt="helpline"
+              class="icon"
+              style="width: 200px; height: auto"
+            />
+            <h3>Health Helpline</h3>
+          </div>
+          <div class="issue-card">
+            <img
+              src="../assets/medcertificate.png"
+              alt="abc"
+              class="icon"
+              style="width: 200px; height: auto"
+            />
+            <h3>Medical Certificate</h3>
+          </div>
+          <div class="issue-card">
+            <img
+              src="../assets/scedule.png"
+              alt="schedules"
+              class="icon"
+              style="width: 200px; height: auto"
+            />
+            <h3>Appointment Booking</h3>
+          </div>
+          <div class="issue-card">
+            <img
+              src="../assets/medicinedelivery.png"
+              alt="medicinedelivery"
+              class="icon"
+              style="width: 200px; height: auto"
+            />
+            <h3>Medicine Delivery</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="about" class="faq-section">
+      <div class="container">
+        <div class="faq-content">
+          <div class="faq-left" style="margin-top: 120px">
+            <div class="date-correction-illustration">
+              <img src="../assets/faq.jpg" alt="faq" />
+            </div>
+          </div>
+          <div class="faq-right">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-tabs">
+              <button class="faq-tab active">General</button>
+              <button class="faq-tab">Registration</button>
+              <button class="faq-tab">Health Services</button>
+              <button class="faq-tab">Emergency</button>
+            </div>
+            <div class="faq-list">
+              <!-- General FAQs -->
+              <div class="faq-item" data-category="general">
+                <div class="faq-question">
+                  <h4>What is Kerala Migrant Health Records system?</h4>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    The Kerala Migrant Health Records system is a comprehensive
+                    digital health management platform designed specifically for
+                    migrant workers in Kerala. It provides:
+                  </p>
+                  <ul>
+                    <li>
+                      <strong>Digital Health Records:</strong> Complete medical
+                      history and health tracking
+                    </li>
+                    <li>
+                      <strong>Health Services Access:</strong> Easy access to
+                      government health centers
+                    </li>
+                    <li>
+                      <strong>Emergency Support:</strong> 24/7 emergency health
+                      services
+                    </li>
+                    <li>
+                      <strong>Disease Prevention:</strong> Vaccination and
+                      health awareness programs
+                    </li>
+                    <li>
+                      <strong>Multi-language Support:</strong> Services
+                      available in multiple languages
+                    </li>
+                  </ul>
+                  <p>
+                    This system ensures that migrant workers receive quality
+                    healthcare services regardless of their origin or language.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-category="general">
+                <div class="faq-question">
+                  <h4>Who can use this health system?</h4>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>This health system is designed for:</p>
+                  <ul>
+                    <li>
+                      <strong>Migrant Workers:</strong> All migrant workers
+                      working in Kerala
+                    </li>
+                    <li>
+                      <strong>Family Members:</strong> Spouses and children of
+                      migrant workers
+                    </li>
+                    <li>
+                      <strong>Dependents:</strong> Elderly parents and other
+                      dependents
+                    </li>
+                    <li>
+                      <strong>All Ages:</strong> From infants to elderly family
+                      members
+                    </li>
+                    <li>
+                      <strong>All Nationalities:</strong> Workers from any state
+                      or country
+                    </li>
+                  </ul>
+                  <p>
+                    Registration is free and open to all migrant workers
+                    regardless of their employment status, duration of stay, or
+                    documentation.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-category="general">
+                <div class="faq-question">
+                  <h4>Is this service available in my language?</h4>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Yes! The Kerala Migrant Health system provides
+                    multi-language support:
+                  </p>
+                  <ul>
+                    <li>
+                      <strong>Website Languages:</strong> English, Hindi,
+                      Malayalam, and Tamil
+                    </li>
+                    <li>
+                      <strong>Mobile App:</strong> Available in all major Indian
+                      languages
+                    </li>
+                    <li>
+                      <strong>Health Centers:</strong> Staff trained in multiple
+                      languages
+                    </li>
+                    <li>
+                      <strong>Emergency Services:</strong> 24/7 helpline in
+                      multiple languages
+                    </li>
+                    <li>
+                      <strong>Documents:</strong> Forms and guides available in
+                      regional languages
+                    </li>
+                    <li>
+                      <strong>Interpreters:</strong> On-call interpreter
+                      services at major health centers
+                    </li>
+                  </ul>
+                  <p>
+                    You can change the language using the language selector at
+                    the top of the website.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-category="general">
+                <div class="faq-question">
+                  <h4>How do I contact support if I need help?</h4>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>Multiple support channels are available to help you:</p>
+                  <ul>
+                    <li>
+                      <strong>Health Helpline:</strong> Call 104 for general
+                      health queries
+                    </li>
+                    <li>
+                      <strong>Emergency:</strong> Call 108 for medical
+                      emergencies
+                    </li>
+                    <li>
+                      <strong>Technical Support:</strong> Contact your nearest
+                      health center for app/website help
+                    </li>
+                    <li>
+                      <strong>Community Health Workers:</strong> Visit your
+                      local health worker for assistance
+                    </li>
+                    <li>
+                      <strong>Health Centers:</strong> Visit any Government
+                      Health Center for in-person support
+                    </li>
+                    <li>
+                      <strong>Mobile App:</strong> Use the help section in the
+                      Kerala Migrant Health app
+                    </li>
+                  </ul>
+                  <p>
+                    All support services are free and available in multiple
+                    languages.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-category="general">
+                <div class="faq-question">
+                  <h4>What are the benefits of using this system?</h4>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Using the Kerala Migrant Health system provides numerous
+                    benefits:
+                  </p>
+                  <ul>
+                    <li>
+                      <strong>Free Healthcare:</strong> All services are
+                      completely free of cost
+                    </li>
+                    <li>
+                      <strong>Digital Records:</strong> Your health history is
+                      safely stored and accessible anywhere
+                    </li>
+                    <li>
+                      <strong>Quick Access:</strong> Fast access to medical
+                      services and emergency care
+                    </li>
+                    <li>
+                      <strong>Family Coverage:</strong> Health services for your
+                      entire family
+                    </li>
+                    <li>
+                      <strong>Preventive Care:</strong> Regular health checkups
+                      and vaccination programs
+                    </li>
+                    <li>
+                      <strong>Emergency Support:</strong> 24/7 emergency medical
+                      services
+                    </li>
+                    <li>
+                      <strong>Language Support:</strong> Services in your
+                      preferred language
+                    </li>
+                    <li>
+                      <strong>Health Education:</strong> Access to health
+                      awareness and education programs
+                    </li>
+                  </ul>
+                  <p>
+                    This system ensures you and your family receive the best
+                    possible healthcare in Kerala.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Registration FAQs -->
+              <div class="faq-item" data-category="registration">
+                <div class="faq-question">
+                  <h4>How do I register as a migrant worker?</h4>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    To register as a migrant worker in Kerala's health system,
+                    you can:
+                  </p>
+                  <ul>
+                    <li>
+                      Visit any Government Health Center with valid ID proof
+                      (Aadhaar, Voter ID, or Passport)
+                    </li>
+                    <li>
+                      Fill out the migrant worker registration form with
+                      personal and health details
+                    </li>
+                    <li>
+                      Provide contact information and emergency contact details
+                    </li>
+                    <li>
+                      Submit required documents and receive your unique health
+                      ID
+                    </li>
+                    <li>
+                      Access your health records online through the mobile app
+                      or website
+                    </li>
+                  </ul>
+                  <p>
+                    Registration is free and takes approximately 15-20 minutes
+                    to complete.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-category="registration">
+                <div class="faq-question">
+                  <h4>What documents do I need for registration?</h4>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>For registration, you need to bring:</p>
+                  <ul>
+                    <li>
+                      <strong>Identity Proof:</strong> Aadhaar Card, Voter ID,
+                      Passport, or any government-issued ID
+                    </li>
+                    <li>
+                      <strong>Address Proof:</strong> Current address in Kerala
+                      (rent agreement, employer letter, or local address proof)
+                    </li>
+                    <li>
+                      <strong>Employment Details:</strong> Employer information,
+                      work location, and job details
+                    </li>
+                    <li>
+                      <strong>Contact Information:</strong> Mobile number and
+                      emergency contact details
+                    </li>
+                    <li>
+                      <strong>Family Details:</strong> Information about family
+                      members (if applicable)
+                    </li>
+                  </ul>
+                  <p>
+                    All documents should be original or attested copies.
+                    Registration staff will help you with the process.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-category="registration">
+                <div class="faq-question">
+                  <h4>Can I register my family members too?</h4>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Yes, you can register your family members during your
+                    registration:
+                  </p>
+                  <ul>
+                    <li>
+                      <strong>Spouse and Children:</strong> Can be registered
+                      under your health ID
+                    </li>
+                    <li>
+                      <strong>Dependent Parents:</strong> Can be included in
+                      family health records
+                    </li>
+                    <li>
+                      <strong>Family Health Tracking:</strong> Monitor health
+                      status of all family members
+                    </li>
+                    <li>
+                      <strong>Emergency Contacts:</strong> Update family
+                      emergency contact information
+                    </li>
+                    <li>
+                      <strong>Vaccination Records:</strong> Track immunization
+                      schedules for children
+                    </li>
+                  </ul>
+                  <p>
+                    Family registration ensures comprehensive health coverage
+                    for all your dependents.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Health Services FAQs -->
+              <div class="faq-item" data-category="health-services">
+                <div class="faq-question">
+                  <h4>What health services are available for migrants?</h4>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Kerala provides comprehensive health services for migrant
+                    workers including:
+                  </p>
+                  <ul>
+                    <li>
+                      <strong>Primary Healthcare:</strong> General health
+                      checkups, basic treatment, and preventive care
+                    </li>
+                    <li>
+                      <strong>Emergency Services:</strong> 24/7 emergency
+                      medical care and ambulance services
+                    </li>
+                    <li>
+                      <strong>Specialized Care:</strong> Access to district
+                      hospitals and medical colleges
+                    </li>
+                    <li>
+                      <strong>Mental Health Support:</strong> Counseling and
+                      mental health services
+                    </li>
+                    <li>
+                      <strong>Maternal & Child Health:</strong> Antenatal care,
+                      delivery services, and child immunization
+                    </li>
+                    <li>
+                      <strong>Disease Prevention:</strong> Vaccination programs
+                      and health awareness campaigns
+                    </li>
+                    <li>
+                      <strong>Health Records:</strong> Digital health records
+                      management and tracking
+                    </li>
+                  </ul>
+                  <p>
+                    All services are provided free of cost at Government Health
+                    Centers.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-category="health-services">
+                <div class="faq-question">
+                  <h4>Are there any charges for health services?</h4>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    All health services are completely free for registered
+                    migrant workers:
+                  </p>
+                  <ul>
+                    <li>
+                      <strong>Consultation:</strong> Free doctor consultations
+                      at all Government Health Centers
+                    </li>
+                    <li>
+                      <strong>Medicines:</strong> Essential medicines provided
+                      free of cost
+                    </li>
+                    <li>
+                      <strong>Diagnostic Tests:</strong> Basic tests like blood
+                      tests, X-rays are free
+                    </li>
+                    <li>
+                      <strong>Emergency Care:</strong> Ambulance and emergency
+                      treatment are free
+                    </li>
+                    <li>
+                      <strong>Specialized Treatment:</strong> Referral to
+                      district hospitals and medical colleges
+                    </li>
+                    <li>
+                      <strong>Vaccinations:</strong> All immunization programs
+                      are free
+                    </li>
+                    <li>
+                      <strong>Maternal Care:</strong> Antenatal and delivery
+                      services are free
+                    </li>
+                  </ul>
+                  <p>
+                    No payment is required for any government health services.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-category="health-services">
+                <div class="faq-question">
+                  <h4>How do I find the nearest health center?</h4>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    You can find the nearest health center through multiple
+                    ways:
+                  </p>
+                  <ul>
+                    <li>
+                      <strong>Search by PIN Code:</strong> Use the search
+                      function on the website with your area PIN code
+                    </li>
+                    <li>
+                      <strong>Search by District:</strong> Select your district
+                      from the dropdown menu
+                    </li>
+                    <li>
+                      <strong>Mobile App:</strong> Use the location feature in
+                      the Kerala Migrant Health app
+                    </li>
+                    <li>
+                      <strong>Call Helpline:</strong> Contact 104 for assistance
+                      in finding nearby centers
+                    </li>
+                    <li>
+                      <strong>Ask Locals:</strong> Community health workers can
+                      guide you to the nearest center
+                    </li>
+                    <li>
+                      <strong>Online Map:</strong> Interactive map showing all
+                      health centers in your area
+                    </li>
+                  </ul>
+                  <p>
+                    All health centers provide services in multiple languages
+                    for better accessibility.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Emergency FAQs -->
+              <div class="faq-item" data-category="emergency">
+                <div class="faq-question">
+                  <h4>What should I do in case of health emergency?</h4>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>In case of a health emergency, follow these steps:</p>
+                  <ul>
+                    <li>
+                      <strong>Immediate Action:</strong> Call 108 for ambulance
+                      services or visit the nearest Government Hospital
+                    </li>
+                    <li>
+                      <strong>Emergency Contacts:</strong> Contact your
+                      registered emergency contact person
+                    </li>
+                    <li>
+                      <strong>Health ID:</strong> Carry your health ID card for
+                      quick access to medical history
+                    </li>
+                    <li>
+                      <strong>Language Support:</strong> Request for interpreter
+                      services if needed (available in multiple languages)
+                    </li>
+                    <li>
+                      <strong>Follow-up:</strong> Ensure your health records are
+                      updated with emergency treatment details
+                    </li>
+                  </ul>
+                  <p>
+                    <strong>Emergency Numbers:</strong> 108 (Ambulance), 104
+                    (Health Helpline), 1077 (Disaster Management)
+                  </p>
+                  <p>
+                    All emergency services are free and available 24/7 for
+                    registered migrant workers.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-category="emergency">
+                <div class="faq-question">
+                  <h4>What if I don't have my health ID during emergency?</h4>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Don't worry! Emergency services are available even without
+                    your health ID:
+                  </p>
+                  <ul>
+                    <li>
+                      <strong>Immediate Treatment:</strong> You will receive
+                      emergency care regardless of ID status
+                    </li>
+                    <li>
+                      <strong>Verification:</strong> Hospital staff can verify
+                      your registration using your name and mobile number
+                    </li>
+                    <li>
+                      <strong>Retroactive Billing:</strong> All emergency
+                      services remain free for registered migrants
+                    </li>
+                    <li>
+                      <strong>Record Update:</strong> Your health records will
+                      be updated after treatment
+                    </li>
+                    <li>
+                      <strong>Language Support:</strong> Interpreter services
+                      available in multiple languages
+                    </li>
+                    <li>
+                      <strong>Family Notification:</strong> Your emergency
+                      contacts will be informed
+                    </li>
+                  </ul>
+                  <p>
+                    Your safety and health are the top priority during
+                    emergencies.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-category="emergency">
+                <div class="faq-question">
+                  <h4>How do I report a health emergency for someone else?</h4>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    You can report health emergencies for others by following
+                    these steps:
+                  </p>
+                  <ul>
+                    <li>
+                      <strong>Call Emergency Numbers:</strong> Dial 108 for
+                      ambulance or 104 for health helpline
+                    </li>
+                    <li>
+                      <strong>Provide Information:</strong> Give the person's
+                      name, location, and nature of emergency
+                    </li>
+                    <li>
+                      <strong>Stay with the Person:</strong> Remain with them
+                      until help arrives
+                    </li>
+                    <li>
+                      <strong>Contact Family:</strong> Inform their emergency
+                      contacts if possible
+                    </li>
+                    <li>
+                      <strong>Follow Instructions:</strong> Follow the
+                      instructions given by emergency operators
+                    </li>
+                    <li>
+                      <strong>Update Records:</strong> Ensure their health
+                      records are updated after treatment
+                    </li>
+                  </ul>
+                  <p>
+                    Emergency services are available for all, regardless of
+                    registration status.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What's New -->
+    <section class="whats-new">
+      <div class="container">
+        <div class="whats-new-content">
+          <div class="whats-new-left">
+            <h2>Latest Updates & Features</h2>
+            <div class="new-features">
+              <div class="feature-item">
+                <span class="feature-number">1</span>
+                <p>
+                  Real-time health monitoring and disease surveillance system
+                  for migrant workers
+                </p>
+              </div>
+              <div class="feature-item">
+                <span class="feature-number">2</span>
+                <p>
+                  Mobile app integration for easy health record access and
+                  emergency alerts
+                </p>
+              </div>
+              <div class="feature-item">
+                <span class="feature-number">3</span>
+                <p>
+                  Multi-language support for better accessibility across
+                  different migrant communities
+                </p>
+              </div>
+              <div class="feature-item">
+                <span class="feature-number">4</span>
+                <p>
+                  Integration with government health schemes and insurance
+                  programs
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="whats-new-right">
+            <div class="date-correction-illustration">
+              <img src="../assets/latestupdates.jpg" alt="latestupdates" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics">
+      <div class="container">
+        <div class="statistics-content">
+          <div class="statistics-left">
+            <h2>Kerala's Comprehensive Migrant Health Management</h2>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <h3>Registered Migrants</h3>
+                <div class="stat-number">2.5+ Lakh</div>
+              </div>
+              <div class="stat-item">
+                <h3>Health Coverage</h3>
+                <div class="stat-number">98%+</div>
+              </div>
+              <div class="stat-item">
+                <h3>Health Centers</h3>
+                <div class="stat-number">500+</div>
+              </div>
+              <div class="stat-item">
+                <h3>Disease Prevention</h3>
+                <div class="stat-number">99%+</div>
+              </div>
+            </div>
+          </div>
+          <div class="statistics-right">
+            <div class="stats-map">
+              <div class="map-dots"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners">
+      <div class="container">
+        <h2>Our Partners & Collaborators</h2>
+        <div class="partners-content">
+          <div class="partners-illustration">
+            <img
+              src="../assets/partner.png"
+              alt="partner"
+              class="icon"
+              style="
+                width: 200px;
+                height: auto;
+                border-radius: 50%;
+                border-color: beige;
+                border-width: 1px;
+              "
+            />
+          </div>
+          <div class="partner-logos">
+            <a href="https://dhs.kerala.gov.in/" target="_blank" class="partner-logo">Kerala Health Department</a>
+            <a href="https://nhm.gov.in/" target="_blank" class="partner-logo">National Health Mission</a>
+            <a href="https://www.who.int/india" target="_blank" class="partner-logo">WHO India</a>
+            <a href="https://www.unicef.org/india" target="_blank" class="partner-logo">UNICEF</a>
+            <a href="https://www.indianredcross.org/" target="_blank" class="partner-logo">Red Cross</a>
+            <a href="https://ngosindia.org/" target="_blank" class="partner-logo">Local NGOs</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>PLATFORMS</h3>
+            <ul>
+              <li><a href="https://play.google.com/store" target="_blank">Mobile App</a></li>
+              <li><a href="land.html">Web Portal</a></li>
+              <li><a href="https://api.keralahealth.gov.in/docs" target="_blank">API Services</a></li>
+              <li><a href="https://docs.keralahealth.gov.in/integration" target="_blank">Integration Guide</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>RESOURCES</h3>
+            <ul>
+              <li><a href="https://docs.keralahealth.gov.in/user-manual" target="_blank">User Manual</a></li>
+              <li><a href="#about">FAQ</a></li>
+              <li><a href="https://www.who.int/health-topics" target="_blank">Health Guidelines</a></li>
+              <li><a href="#prevention">Disease Prevention</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>SUPPORT</h3>
+            <ul>
+              <li><a href="https://help.keralahealth.gov.in" target="_blank">Help Center</a></li>
+              <li><a href="mailto:support@keralahealth.gov.in">Contact Us</a></li>
+              <li><a href="tel:104">Health Helpline</a></li>
+              <li><a href="mailto:feedback@keralahealth.gov.in">Feedback</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>CONTACT US</h3>
+            <ul>
+              <li><a href="mailto:support@keralahealth.gov.in">Email Support</a></li>
+              <li><a href="tel:104">Phone: 104</a></li>
+              <li><a href="tel:108">Emergency: 108</a></li>
+              <li><a href="https://twitter.com/keralahealth" target="_blank">Social Media</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 Kerala Migrant Health Records System. All rights
+            reserved.
+          </p>
+          <div class="footer-links">
+            <a href="https://keralahealth.gov.in/terms" target="_blank" style="margin-right: 40px">Terms of Service</a>
+            <a href="https://keralahealth.gov.in/privacy" target="_blank">Privacy Policy</a>
+          </div>
+          <div class="accessibility-icons">
+            <i class="fas fa-universal-access"></i>
+            <i class="fas fa-wheelchair"></i>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- SDG Impact Popup -->
+    <div id="sdgPopup" class="popup-overlay">
+      <div class="popup-content">
+        <div class="popup-header">
+          <h2>SDG Impact & Public Health Achievement</h2>
+          <button class="popup-close" id="closeSdgPopup">&times;</button>
+        </div>
+        <div class="popup-body">
+          <div class="sdg-points">
+            <div class="sdg-point">
+              <div class="sdg-icon">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="sdg-text">
+                <h3>SDG 3: Good Health and Well-being</h3>
+                <p>
+                  Ensuring healthy lives and promoting well-being for all ages
+                  through comprehensive migrant health management, reducing
+                  health inequalities and improving access to quality healthcare
+                  services.
+                </p>
+              </div>
+            </div>
+
+            <div class="sdg-point">
+              <div class="sdg-icon">
+                <i class="fas fa-balance-scale"></i>
+              </div>
+              <div class="sdg-text">
+                <h3>SDG 10: Reduced Inequalities</h3>
+                <p>
+                  Reducing inequality within and among countries by providing
+                  equal access to healthcare services for migrant workers,
+                  ensuring no one is left behind in health coverage.
+                </p>
+              </div>
+            </div>
+
+            <div class="sdg-point">
+              <div class="sdg-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="sdg-text">
+                <h3>SDG 1: No Poverty</h3>
+                <p>
+                  Ending poverty in all its forms by providing free healthcare
+                  services to migrant workers, reducing healthcare costs and
+                  improving economic stability for vulnerable populations.
+                </p>
+              </div>
+            </div>
+
+            <div class="sdg-point">
+              <div class="sdg-icon">
+                <i class="fas fa-shield-virus"></i>
+              </div>
+              <div class="sdg-text">
+                <h3>SDG 6: Clean Water and Sanitation</h3>
+                <p>
+                  Ensuring availability and sustainable management of water and
+                  sanitation for all through health education and disease
+                  prevention programs for migrant communities.
+                </p>
+              </div>
+            </div>
+
+            <div class="sdg-point">
+              <div class="sdg-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div class="sdg-text">
+                <h3>SDG 4: Quality Education</h3>
+                <p>
+                  Ensuring inclusive and equitable quality education through
+                  health literacy programs, awareness campaigns, and capacity
+                  building for migrant workers and their families.
+                </p>
+              </div>
+            </div>
+
+            <div class="sdg-point">
+              <div class="sdg-icon">
+                <i class="fas fa-city"></i>
+              </div>
+              <div class="sdg-text">
+                <h3>SDG 11: Sustainable Cities and Communities</h3>
+                <p>
+                  Making cities and human settlements inclusive, safe, resilient
+                  and sustainable by integrating migrant workers into urban
+                  health systems, ensuring equitable access to healthcare
+                  services in both urban and rural areas.
+                </p>
+              </div>
+            </div>
+
+            <div class="sdg-point">
+              <div class="sdg-icon">
+                <i class="fas fa-handshake"></i>
+              </div>
+              <div class="sdg-text">
+                <h3>SDG 17: Partnerships for the Goals</h3>
+                <p>
+                  Strengthening partnerships for sustainable development through
+                  collaboration with government agencies, NGOs, healthcare
+                  providers, and international organizations.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="impact-stats">
+            <h3>Key Achievements</h3>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <span class="stat-number">2.5+ Lakh</span>
+                <span class="stat-label">Migrant Workers Registered</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">95%</span>
+                <span class="stat-label">Health Coverage</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Health Centers</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Emergency Services</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scroll progress indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+
+    <!-- <script src="language-manager.js"></script> --> <!-- Language manager turned off -->
+    <script src="land.js"></script>
+  </body>
+</html>

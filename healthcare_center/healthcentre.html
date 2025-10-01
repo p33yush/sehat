@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Healthcare Centre Dashboard - Kerala Health Records</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="healthcentre.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Top Header -->
+    <div class="top-header">
+      <div class="top-header-content">
+        <div class="logo-section">
+          <div class="logo-icon">
+            <img src="../assets/finallogo.png" alt="SEHAT Logo" />
+          </div>
+          <div class="logo-text">
+            <span class="logo-name">SEHAT</span>
+            <span class="logo-subtitle">Healthcare Portal</span>
+          </div>
+        </div>
+        
+        <div class="search-section">
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search patients, records, reports..." />
+          </div>
+        </div>
+        
+        <div class="header-actions">
+          <div class="language-selector">
+            <i class="fas fa-globe"></i>
+            <select>
+              <option value="en" selected>English</option>
+              <option value="hi">हिन्दी</option>
+              <option value="ml">മലയാളം</option>
+              <option value="bn">বাংলা</option>
+            </select>
+          </div>
+          
+          <div class="notification-badge" id="notificationTrigger" title="Notifications">
+            <i class="fas fa-bell"></i>
+            <span class="badge-count" id="notificationCount">9</span>
+          </div>
+          
+          <div class="user-profile" id="healthcareInfoTrigger" title="Health Care Centre details">
+            <div class="profile-avatar">
+              <img src="../assets/hospital_img.jpg" alt="Healthcare Provider" style="border-radius: 50%; object-fit: cover; width: 100%; height: 100%; display: block;" />
+            </div>
+            <div class="profile-info">
+              <span class="profile-name">Healthcare Centre</span>
+              <span class="profile-role">Medical Staff</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard-container">
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar">
+        <nav class="sidebar-nav">
+          <div class="nav-section">
+            <div class="nav-item active">
+              <i class="fas fa-home"></i>
+              <span>Dashboard</span>
+            </div>
+          </div>
+          
+          <div class="nav-section">
+            <div class="nav-header">PATIENT MANAGEMENT</div>
+            <div class="nav-item" id="addPatientNav">
+              <i class="fas fa-user-plus"></i>
+              <span>Add Patient</span>
+            </div>
+            <div class="nav-item" id="allPatientsNav">
+              <i class="fas fa-users"></i>
+              <span>All Patients</span>
+            </div>
+          </div>
+          
+          <div class="nav-section">
+            <div class="nav-header">MEDICAL RECORDS</div>
+            <div class="nav-item" id="uploadReportsNav">
+              <i class="fas fa-upload"></i>
+              <span>Upload Reports</span>
+            </div>
+            <div class="nav-item" id="generateReportsNav">
+              <i class="fas fa-chart-bar"></i>
+              <span>Generate Reports</span>
+            </div>
+          </div>
+          
+          <div class="nav-section">
+            <div class="nav-header">APPOINTMENTS</div>
+            <div class="nav-item">
+              <i class="fas fa-calendar-plus"></i>
+              <span>Schedule Appointment</span>
+            </div>
+            <div class="nav-item">
+              <i class="fas fa-calendar-check"></i>
+              <span>Today's Schedule</span>
+            </div>
+            <div class="nav-item">
+              <i class="fas fa-calendar-alt"></i>
+              <span>All Appointments</span>
+            </div>
+          </div>
+          
+          <div class="nav-section">
+            <div class="nav-header">STAFF & SETTINGS</div>
+            <div class="nav-item">
+              <i class="fas fa-user-md"></i>
+              <span>Medical Staff</span>
+            </div>
+            <div class="nav-item">
+              <i class="fas fa-cog"></i>
+              <span>Settings</span>
+            </div>
+            <div class="nav-item">
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Logout</span>
+            </div>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="main-content">
+        <!-- Hero Section -->
+        <div class="hero-section">
+          <div class="hero-content">
+            <div class="hero-text">
+              <h1>Healthcare Centre <span class="highlight">Dashboard</span></h1>
+              <p>
+                Comprehensive health management system for migrant workers -
+                ensuring quality healthcare access for all.
+              </p>
+              <div class="hero-stats">
+                <div class="hero-stat">
+                  <div class="hero-stat-number">156</div>
+                  <div class="hero-stat-label">Active Patients</div>
+                </div>
+                <div class="hero-stat">
+                  <div class="hero-stat-number">12</div>
+                  <div class="hero-stat-label">Today's Appointments</div>
+                </div>
+                <div class="hero-stat">
+                  <div class="hero-stat-number">5</div>
+                  <div class="hero-stat-label">Medical Staff</div>
+                </div>
+              </div>
+            </div>
+            <div class="hero-visual">
+              <div class="hero-icon">
+                <img
+                  src="../assets/hospital_img.jpg"
+                  alt="Hospital Building"
+                  class="hospital-image"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Stats Row -->
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="icon" style="background: var(--secondary-teal); color: var(--primary-teal);">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <div class="number">12</div>
+            <div class="label">Today's Appointments</div>
+            <div class="sublabel">Including 2 pending</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="icon" style="background: var(--secondary-teal); color: var(--primary-teal);">
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="number">5</div>
+            <div class="label">Urgent Cases</div>
+            <div class="sublabel">Requiring immediate attention</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="icon" style="background: var(--secondary-teal); color: var(--primary-teal);">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="number">156</div>
+            <div class="label">Active Patients</div>
+            <div class="sublabel">Registered and under care</div>
+          </div>
+        </div>
+
+        <!-- Dashboard Widgets -->
+        <div class="dashboard-widgets">
+          <!-- Health Statistics Overview Chart -->
+          <div class="widget sales-overview">
+            <div class="widget-header">
+              <h3>Health Statistics Overview</h3>
+              <div class="widget-actions">
+                <i class="fas fa-ellipsis-h"></i>
+              </div>
+            </div>
+            <div class="widget-content">
+              <div class="chart-container">
+                <canvas id="healthChart" width="400" height="200"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Patient Appointments Chart -->
+          <div class="widget order-status">
+            <div class="widget-header">
+              <h3>Patient Appointments</h3>
+              <div class="widget-actions">
+                <i class="fas fa-ellipsis-h"></i>
+              </div>
+            </div>
+            <div class="widget-content">
+              <div class="chart-container">
+                <canvas id="appointmentChart" width="400" height="200"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Health Conditions Donut Chart -->
+          <div class="widget product-distribution">
+            <div class="widget-header">
+              <h3>Health Conditions</h3>
+              <div class="widget-actions">
+                <i class="fas fa-ellipsis-h"></i>
+              </div>
+            </div>
+            <div class="widget-content">
+              <div class="donut-chart-container">
+                <div class="donut-chart">
+                  <div class="chart-center">
+                    <span class="center-value">156</span>
+                    <span class="center-label">Total Patients</span>
+                  </div>
+                </div>
+                <div class="chart-legend">
+                  <div class="legend-item">
+                    <span class="legend-color" style="background: #10b981;"></span>
+                    <span class="legend-label">Healthy</span>
+                    <span class="legend-value">89</span>
+                  </div>
+                  <div class="legend-item">
+                    <span class="legend-color" style="background: #f59e0b;"></span>
+                    <span class="legend-label">Under Treatment</span>
+                    <span class="legend-value">45</span>
+                  </div>
+                  <div class="legend-item">
+                    <span class="legend-color" style="background: #ef4444;"></span>
+                    <span class="legend-label">Critical</span>
+                    <span class="legend-value">22</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="left-section">
+            <div class="content-section">
+              <div class="section-header">
+                <h2 class="section-title">Recent Patients</h2>
+                <a href="#" class="view-all">View All Patients</a>
+              </div>
+
+              <div class="patient-item">
+                <div class="patient-info">
+                  <div class="patient-avatar">RJ</div>
+                  <div class="patient-details">
+                    <h4>Rajesh Kumar</h4>
+                    <p>
+                      ID: PAT-001-2024 • Mama Store Construction<br />Last visit:
+                      Dec 7, 2024
+                    </p>
+                  </div>
+                </div>
+                <div class="patient-actions">
+                  <button class="btn btn-primary">Regular Checkup</button>
+                  <button
+                    class="btn btn-outline"
+                    onclick="viewPatientDetails('PAT-001-2024')"
+                  >
+                    View Record
+                  </button>
+                </div>
+              </div>
+
+              <div class="patient-item">
+                <div class="patient-info">
+                  <div class="patient-avatar">AB</div>
+                  <div class="patient-details">
+                    <h4>Anurag Ben</h4>
+                    <p>
+                      ID: PAT-VNY-00387 • IT Park Construction<br />Last visit:
+                      Dec 7, 2024
+                    </p>
+                  </div>
+                </div>
+                <div class="patient-actions">
+                  <button class="btn btn-secondary">
+                    Hypertension Follow-up
+                  </button>
+                  <button
+                    class="btn btn-outline"
+                    onclick="viewPatientDetails('PAT-VNY-00387')"
+                  >
+                    View Record
+                  </button>
+                </div>
+              </div>
+
+              <div class="patient-item">
+                <div class="patient-info">
+                  <div class="patient-avatar">NK</div>
+                  <div class="patient-details">
+                    <h4>Nehal Khan</h4>
+                    <p>
+                      ID: PAT-VNV-00101 • Highway Project<br />Last visit: Dec 5,
+                      2024
+                    </p>
+                  </div>
+                </div>
+                <div class="patient-actions">
+                  <button class="btn btn-warning">Injury Treatment</button>
+                  <button
+                    class="btn btn-outline"
+                    onclick="viewPatientDetails('PAT-VNV-00101')"
+                  >
+                    View Record
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="content-section">
+              <div class="section-header">
+                <h2 class="section-title">Urgent Cases</h2>
+              </div>
+
+              <div class="patient-item">
+                <div class="patient-info">
+                  <div class="patient-avatar">AA</div>
+                  <div class="patient-details">
+                    <h4>Ahmed Ali</h4>
+                    <p>Chest pain - Emergency consultation required</p>
+                  </div>
+                </div>
+                <div class="patient-actions">
+                  <button class="btn btn-warning">High Priority</button>
+                  <button
+                    class="btn btn-outline"
+                    onclick="viewPatientDetails('PAT-AA-001')"
+                  >
+                    View Record
+                  </button>
+                </div>
+              </div>
+
+              <div class="patient-item">
+                <div class="patient-info">
+                  <div class="patient-avatar">PS</div>
+                  <div class="patient-details">
+                    <h4>Priya Sharma</h4>
+                    <p>Severe allergic reaction - Immediate attention needed</p>
+                  </div>
+                </div>
+                <div class="patient-actions">
+                  <button class="btn btn-warning">Critical</button>
+                  <button
+                    class="btn btn-outline"
+                    onclick="viewPatientDetails('PAT-PS-002')"
+                  >
+                    View Record
+                  </button>
+                </div>
+              </div>
+
+              <div class="patient-item">
+                <div class="patient-info">
+                  <div class="patient-avatar">MK</div>
+                  <div class="patient-details">
+                    <h4>Mohammad Khan</h4>
+                    <p>High fever with breathing difficulties - ICU monitoring</p>
+                  </div>
+                </div>
+                <div class="patient-actions">
+                  <button class="btn btn-danger">Critical</button>
+                  <button
+                    class="btn btn-outline"
+                    onclick="viewPatientDetails('PAT-MK-003')"
+                  >
+                    View Record
+                  </button>
+                </div>
+              </div>
+
+              <div class="patient-item">
+                <div class="patient-info">
+                  <div class="patient-avatar">RS</div>
+                  <div class="patient-details">
+                    <h4>Rajesh Singh</h4>
+                    <p>Workplace injury - Fractured arm requiring surgery</p>
+                  </div>
+                </div>
+                <div class="patient-actions">
+                  <button class="btn btn-warning">High Priority</button>
+                  <button
+                    class="btn btn-outline"
+                    onclick="viewPatientDetails('PAT-RS-004')"
+                  >
+                    View Record
+                  </button>
+                </div>
+              </div>
+
+              <div class="patient-item">
+                <div class="patient-info">
+                  <div class="patient-avatar">SD</div>
+                  <div class="patient-details">
+                    <h4>Sunita Devi</h4>
+                    <p>Severe dehydration - IV fluids required immediately</p>
+                  </div>
+                </div>
+                <div class="patient-actions">
+                  <button class="btn btn-warning">High Priority</button>
+                  <button
+                    class="btn btn-outline"
+                    onclick="viewPatientDetails('PAT-SD-005')"
+                  >
+                    View Record
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="right-section">
+            <div class="content-section">
+              <h2 class="section-title">Health Data Management</h2>
+
+              <div class="quick-actions">
+                <button class="action-btn primary" id="addPatientBtnSide">
+                  <span><i class="fas fa-plus"></i></span>
+                  Add New Patient
+                </button>
+
+                <button class="action-btn outline" id="uploadReportBtnSide">
+                  <span><i class="fas fa-upload"></i></span>
+                  Upload Lab Report
+                </button>
+
+                <button class="action-btn secondary" id="generateReportBtnSide">
+                  <span><i class="fas fa-chart-bar"></i></span>
+                  Generate Report
+                </button>
+              </div>
+
+              <div class="health-stats">
+                <div class="stat-card">
+                  <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                  <div class="stat-content">
+                    <div class="stat-number">89%</div>
+                    <div class="stat-label">Health Coverage</div>
+                  </div>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                  <div class="stat-content">
+                    <div class="stat-number">24</div>
+                    <div class="stat-label">Pending Reviews</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="system-alerts">
+                <h3 class="section-title">System Alerts</h3>
+
+                <div class="alert danger">
+                  <strong><i class="fas fa-exclamation-triangle"></i> Disease Alert</strong><br />
+                  Dengue cases reported in sector 7 - Immediate action required
+                </div>
+
+                <div class="alert warning">
+                  <strong><i class="fas fa-syringe"></i> Vaccine Reminder</strong><br />
+                  23 children due for hepatitis B vaccination this week
+                </div>
+
+                <div class="alert info">
+                  <strong><i class="fas fa-hospital"></i> Health Campaign</strong><br />
+                  Malaria prevention drive scheduled for next week
+                </div>
+
+                <div class="alert success">
+                  <strong><i class="fas fa-check-circle"></i> System Update</strong><br />
+                  New health monitoring features available in v2.1
+                </div>
+
+                <div class="alert warning">
+                  <strong><i class="fas fa-exclamation-circle"></i> Equipment Check</strong><br />
+                  Blood pressure monitors need calibration
+                </div>
+
+                <div class="alert info">
+                  <strong><i class="fas fa-calendar"></i> Training Session</strong><br />
+                  First aid training for staff on Friday 2 PM
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Today's Schedule Horizontal Table -->
+        <div class="content-section">
+          <div class="section-header">
+            <h2 class="section-title">Today's Schedule</h2>
+          </div>
+
+          <div class="schedule-table-container">
+            <table class="schedule-table">
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Patient Name</th>
+                  <th>Doctor</th>
+                  <th>Consultation Type</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="time-cell">9:00 AM</td>
+                  <td class="patient-cell">Rahim Uddin</td>
+                  <td class="doctor-cell">Dr. Smith</td>
+                  <td class="type-cell">General consultation</td>
+                  <td class="status-cell">
+                    <span class="status-badge pending">Pending</span>
+                  </td>
+                  <td class="action-cell">
+                    <button class="btn btn-sm btn-outline">View</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="time-cell">10:30 AM</td>
+                  <td class="patient-cell">Sunita Devi</td>
+                  <td class="doctor-cell">Dr. Johnson</td>
+                  <td class="type-cell">Cardiology follow-up</td>
+                  <td class="status-cell">
+                    <span class="status-badge pending">Pending</span>
+                  </td>
+                  <td class="action-cell">
+                    <button class="btn btn-sm btn-outline">View</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="time-cell">1:00 PM</td>
+                  <td class="patient-cell">Amit Patel</td>
+                  <td class="doctor-cell">Dr. Williams</td>
+                  <td class="type-cell">Orthopedic consultation</td>
+                  <td class="status-cell">
+                    <span class="status-badge pending">Pending</span>
+                  </td>
+                  <td class="action-cell">
+                    <button class="btn btn-sm btn-outline">View</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="time-cell">2:30 PM</td>
+                  <td class="patient-cell">Mohammad Hasan</td>
+                  <td class="doctor-cell">Dr. Brown</td>
+                  <td class="type-cell">Lab report review</td>
+                  <td class="status-cell">
+                    <span class="status-badge completed">Completed</span>
+                  </td>
+                  <td class="action-cell">
+                    <button class="btn btn-sm btn-outline">View</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="time-cell">4:00 PM</td>
+                  <td class="patient-cell">Rajesh Kumar</td>
+                  <td class="doctor-cell">Dr. Davis</td>
+                  <td class="type-cell">Routine checkup</td>
+                  <td class="status-cell">
+                    <span class="status-badge pending">Pending</span>
+                  </td>
+                  <td class="action-cell">
+                    <button class="btn btn-sm btn-outline">View</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="doctors-section section-spacing">
+          <div class="section-header">
+            <h2 class="section-title">Medical Staff Directory</h2>
+            <a href="#" class="view-all">View All Doctors</a>
+          </div>
+          <div id="staffCards" class="staff-grid"></div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="notificationModal" class="modal" style="display: none">
+      <div class="modal-content notification-modal">
+        <div class="modal-header">
+          <div class="header-content">
+            <i class="fas fa-bell"></i>
+            <h3>Notifications</h3>
+            <span class="notification-count-badge" id="modalNotificationCount">7</span>
+          </div>
+          <div class="header-actions">
+            <button class="btn btn-sm btn-outline" id="markAllReadBtn">
+              <i class="fas fa-check-double"></i> Mark All Read
+            </button>
+            <button class="modal-close" data-close-modal>&times;</button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="notification-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="urgent">Urgent</button>
+            <button class="filter-btn" data-filter="success">Success</button>
+            <button class="filter-btn" data-filter="info">Info</button>
+          </div>
+          <div id="notificationList" class="notification-list"></div>
+          <div class="notification-footer">
+            <button class="btn btn-outline btn-sm" id="clearAllBtn">
+              <i class="fas fa-trash"></i> Clear All
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="healthcareInfoModal" class="modal" style="display: none">
+      <div class="modal-content healthcare-modal">
+        <div class="modal-header">
+          <div class="header-content">
+            <i class="fas fa-hospital"></i>
+            <h3>Healthcare Centre Information</h3>
+          </div>
+          <button class="modal-close" data-close-modal>&times;</button>
+        </div>
+        <div class="modal-body" id="healthcareInfoBody"></div>
+      </div>
+    </div>
+
+    <div id="addPatientModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3><i class="fas fa-user-plus"></i> Add New Patient</h3>
+          <button class="modal-close" data-close-modal>&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-intro">
+            <p>
+              Register a new migrant worker patient in the healthcare system.
+              All fields are required for proper medical record management.
+            </p>
+          </div>
+          <form id="addPatientForm">
+            <div class="form-section">
+              <h4>📋 Personal Information</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Full Name *</label>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter full name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Worker ID *</label>
+                  <input
+                    type="text"
+                    name="workerId"
+                    placeholder="e.g., WK-2024-001"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Date of Birth *</label>
+                  <input type="date" name="dob" required />
+                </div>
+                <div class="form-group">
+                  <label>Gender *</label>
+                  <select name="gender" required>
+                    <option value="" disabled selected>Select gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h4>🏗️ Work Details</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Occupation/Project *</label>
+                  <input
+                    type="text"
+                    name="occupation"
+                    placeholder="e.g., Construction Worker"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Work Site</label>
+                  <input
+                    type="text"
+                    name="workSite"
+                    placeholder="e.g., IT Park Phase 2"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h4>📞 Contact Information</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Phone Number *</label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="+91 98765 43210"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Emergency Contact</label>
+                  <input
+                    type="tel"
+                    name="emergencyContact"
+                    placeholder="+91 98765 43211"
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group" style="grid-column: 1 / -1">
+                  <label>Address *</label>
+                  <input
+                    type="text"
+                    name="address"
+                    placeholder="Complete residential address"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn btn-outline" data-close-modal>
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-save"></i> Save Patient
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="uploadReportModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3><i class="fas fa-upload"></i> Upload Lab Report</h3>
+          <button class="modal-close" data-close-modal>&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-intro">
+            <p>
+              Upload laboratory test reports for migrant workers. Ensure all
+              patient information is accurate before submitting to the admin
+              panel.
+            </p>
+          </div>
+          <form id="uploadReportForm">
+            <div class="form-section">
+              <h4>👤 Patient Information</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Patient ID *</label>
+                  <input
+                    type="text"
+                    name="patientId"
+                    placeholder="e.g., PAT-2024-001"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Patient Name *</label>
+                  <input
+                    type="text"
+                    name="patientName"
+                    placeholder="Enter patient full name"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Worker ID</label>
+                  <input
+                    type="text"
+                    name="workerId"
+                    placeholder="e.g., WK-2024-001"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Age</label>
+                  <input
+                    type="number"
+                    name="age"
+                    placeholder="Age in years"
+                    min="1"
+                    max="100"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h4>🧪 Test Details</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Test Type *</label>
+                  <select name="testType" required>
+                    <option value="" disabled selected>Select test type</option>
+                    <option value="blood">Blood Test</option>
+                    <option value="urine">Urine Test</option>
+                    <option value="xray">X-Ray</option>
+                    <option value="ecg">ECG</option>
+                    <option value="ct">CT Scan</option>
+                    <option value="mri">MRI</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Test Date *</label>
+                  <input type="date" name="testDate" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Lab Name</label>
+                  <input
+                    type="text"
+                    name="labName"
+                    placeholder="e.g., Apollo Diagnostics"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Doctor Name</label>
+                  <input
+                    type="text"
+                    name="doctorName"
+                    placeholder="Referring doctor"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h4>📁 File Upload</h4>
+              <div class="file-upload-area">
+                <div class="file-upload-content">
+                  <div class="upload-icon"><i class="fas fa-paperclip"></i></div>
+                  <div class="upload-text">
+                    <h5>Drop files here or click to browse</h5>
+                    <p>Supported formats: PDF, JPG, PNG (Max 10MB)</p>
+                  </div>
+                </div>
+                <input
+                  type="file"
+                  name="reportFile"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                  required
+                  multiple
+                />
+              </div>
+              <div class="file-list" id="fileList"></div>
+            </div>
+
+            <div class="form-section">
+              <h4>📝 Additional Information</h4>
+              <div class="form-row">
+                <div class="form-group" style="grid-column: 1 / -1">
+                  <label>Clinical Notes</label>
+                  <textarea
+                    name="notes"
+                    placeholder="Enter any clinical observations, symptoms, or additional notes..."
+                    rows="4"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Priority Level</label>
+                  <select name="priority">
+                    <option value="normal">Normal</option>
+                    <option value="urgent">Urgent</option>
+                    <option value="critical">Critical</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Follow-up Required</label>
+                  <select name="followUp">
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn btn-outline" data-close-modal>
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-upload"></i> Upload Report
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="generateReportModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3><i class="fas fa-chart-bar"></i> Generate Report</h3>
+          <button class="modal-close" data-close-modal>&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-intro">
+            <p>
+              Generate comprehensive reports for healthcare data analysis.
+              Select your criteria and generate detailed reports for
+              administrative review.
+            </p>
+          </div>
+          <form id="generateReportForm">
+            <div class="form-section">
+              <h4>📅 Time Period</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Report Period *</label>
+                  <select name="range" required id="reportRange">
+                    <option value="" disabled selected>
+                      Select time period
+                    </option>
+                    <option value="today">Today</option>
+                    <option value="yesterday">Yesterday</option>
+                    <option value="7d">Last 7 days</option>
+                    <option value="30d">Last 30 days</option>
+                    <option value="90d">Last 3 months</option>
+                    <option value="custom">Custom Range</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Quick Filters</label>
+                  <select name="quickFilter">
+                    <option value="">All Data</option>
+                    <option value="urgent">Urgent Cases Only</option>
+                    <option value="followup">Follow-up Required</option>
+                    <option value="new">New Patients Only</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row" id="customDateRange" style="display: none">
+                <div class="form-group">
+                  <label>Start Date *</label>
+                  <input type="date" name="startDate" id="startDate" />
+                </div>
+                <div class="form-group">
+                  <label>End Date *</label>
+                  <input type="date" name="endDate" id="endDate" />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h4>📋 Report Type & Content</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Report Type *</label>
+                  <select name="type" required>
+                    <option value="" disabled selected>
+                      Select report type
+                    </option>
+                    <option value="comprehensive">
+                      Comprehensive Overview
+                    </option>
+                    <option value="appointments">Appointments Summary</option>
+                    <option value="patients">Patient Demographics</option>
+                    <option value="lab">Lab Reports Analysis</option>
+                    <option value="health">Health Statistics</option>
+                    <option value="worker">Worker Health Trends</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Format</label>
+                  <select name="format">
+                    <option value="pdf">PDF Document</option>
+                    <option value="excel">Excel Spreadsheet</option>
+                    <option value="csv">CSV Data</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn btn-outline" data-close-modal>
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-chart-bar"></i> Generate Report
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar Navigation Overlays -->
+    <!-- Add Patient Overlay -->
+    <div id="addPatientOverlay" class="overlay" style="display: none">
+      <div class="overlay-content">
+        <div class="overlay-header">
+          <h3><i class="fas fa-user-plus"></i> Add New Patient</h3>
+          <button class="overlay-close" data-close-overlay>&times;</button>
+        </div>
+        <div class="overlay-body">
+          <div class="form-intro">
+            <p>
+              Register a new migrant worker patient in the healthcare system.
+              All fields are required for proper medical record management.
+            </p>
+          </div>
+          <form id="addPatientOverlayForm">
+            <div class="form-section">
+              <h4>📋 Personal Information</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Full Name *</label>
+                  <input type="text" name="name" placeholder="Enter full name" required />
+                </div>
+                <div class="form-group">
+                  <label>Worker ID *</label>
+                  <input type="text" name="workerId" placeholder="e.g., WK-2024-001" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Date of Birth *</label>
+                  <input type="date" name="dob" required />
+                </div>
+                <div class="form-group">
+                  <label>Gender *</label>
+                  <select name="gender" required>
+                    <option value="" disabled selected>Select gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-section">
+              <h4>📞 Contact Information</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Phone Number *</label>
+                  <input type="tel" name="phone" placeholder="+91 98765 43210" required />
+                </div>
+                <div class="form-group">
+                  <label>Emergency Contact</label>
+                  <input type="tel" name="emergencyContact" placeholder="+91 98765 43211" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group" style="grid-column: 1 / -1">
+                  <label>Address *</label>
+                  <input type="text" name="address" placeholder="Complete residential address" required />
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-actions">
+              <button type="button" class="btn btn-outline" data-close-overlay>Cancel</button>
+              <button type="submit" class="btn btn-primary">Save Patient</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- All Patients Overlay -->
+    <div id="allPatientsOverlay" class="overlay" style="display: none">
+      <div class="overlay-content">
+        <div class="overlay-header">
+          <h3><i class="fas fa-users"></i> All Patients</h3>
+          <button class="overlay-close" data-close-overlay>&times;</button>
+        </div>
+        <div class="overlay-body">
+          <div class="patients-overview">
+            <div class="patients-stats">
+              <div class="stat-item">
+                <span class="stat-number">156</span>
+                <span class="stat-label">Total Patients</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">12</span>
+                <span class="stat-label">Active Today</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">5</span>
+                <span class="stat-label">Urgent Cases</span>
+              </div>
+            </div>
+
+            <div class="patients-filters">
+              <input
+                type="text"
+                id="patientSearch"
+                placeholder="Search patients..."
+                class="search-input"
+              />
+              <select id="statusFilter" class="filter-select">
+                <option value="">All Status</option>
+                <option value="active">Active</option>
+                <option value="urgent">Urgent</option>
+                <option value="completed">Completed</option>
+              </select>
+            </div>
+
+            <div class="patients-table-container">
+              <table class="patients-table">
+                <thead>
+                  <tr>
+                    <th>Patient ID</th>
+                    <th>Name</th>
+                    <th>Project/Site</th>
+                    <th>Last Visit</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="allPatientsTableBody">
+                  <tr>
+                    <td>PAT-001-2024</td>
+                    <td>Rajesh Kumar</td>
+                    <td>Mama Store Construction</td>
+                    <td>Dec 7, 2024</td>
+                    <td><span class="status-badge active">Active</span></td>
+                    <td><button class="btn btn-sm btn-outline">View</button></td>
+                  </tr>
+                  <tr>
+                    <td>PAT-VNY-00387</td>
+                    <td>Anurag Ben</td>
+                    <td>IT Park Construction</td>
+                    <td>Dec 7, 2024</td>
+                    <td><span class="status-badge urgent">Urgent</span></td>
+                    <td><button class="btn btn-sm btn-outline">View</button></td>
+                  </tr>
+                  <tr>
+                    <td>PAT-VNV-00101</td>
+                    <td>Nehal Khan</td>
+                    <td>Highway Project</td>
+                    <td>Dec 5, 2024</td>
+                    <td><span class="status-badge completed">Completed</span></td>
+                    <td><button class="btn btn-sm btn-outline">View</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Upload Reports Overlay -->
+    <div id="uploadReportsOverlay" class="overlay" style="display: none">
+      <div class="overlay-content">
+        <div class="overlay-header">
+          <h3><i class="fas fa-upload"></i> Upload Lab Report</h3>
+          <button class="overlay-close" data-close-overlay>&times;</button>
+        </div>
+        <div class="overlay-body">
+          <div class="form-intro">
+            <p>
+              Upload laboratory test reports for migrant workers. Ensure all
+              patient information is accurate before submitting to the admin
+              panel.
+            </p>
+          </div>
+          <form id="uploadReportOverlayForm">
+            <div class="form-section">
+              <h4>👤 Patient Information</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Patient ID *</label>
+                  <input type="text" name="patientId" placeholder="e.g., PAT-2024-001" required />
+                </div>
+                <div class="form-group">
+                  <label>Patient Name *</label>
+                  <input type="text" name="patientName" placeholder="Enter patient full name" required />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h4>🧪 Test Details</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Test Type *</label>
+                  <select name="testType" required>
+                    <option value="" disabled selected>Select test type</option>
+                    <option value="blood">Blood Test</option>
+                    <option value="urine">Urine Test</option>
+                    <option value="xray">X-Ray</option>
+                    <option value="ecg">ECG</option>
+                    <option value="ct">CT Scan</option>
+                    <option value="mri">MRI</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Test Date *</label>
+                  <input type="date" name="testDate" required />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h4>📁 File Upload</h4>
+              <div class="file-upload-area">
+                <div class="file-upload-content">
+                  <div class="upload-icon"><i class="fas fa-paperclip"></i></div>
+                  <div class="upload-text">
+                    <h5>Drop files here or click to browse</h5>
+                    <p>Supported formats: PDF, JPG, PNG (Max 10MB)</p>
+                  </div>
+                </div>
+                <input type="file" name="reportFile" accept=".pdf,.jpg,.jpeg,.png" required multiple />
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn btn-outline" data-close-overlay>Cancel</button>
+              <button type="submit" class="btn btn-primary">Upload Report</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Generate Reports Overlay -->
+    <div id="generateReportsOverlay" class="overlay" style="display: none">
+      <div class="overlay-content">
+        <div class="overlay-header">
+          <h3><i class="fas fa-chart-bar"></i> Generate Report</h3>
+          <button class="overlay-close" data-close-overlay>&times;</button>
+        </div>
+        <div class="overlay-body">
+          <div class="form-intro">
+            <p>
+              Generate comprehensive reports for healthcare data analysis.
+              Select your criteria and generate detailed reports for
+              administrative review.
+            </p>
+          </div>
+          <form id="generateReportOverlayForm">
+            <div class="form-section">
+              <h4>📅 Time Period</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Report Period *</label>
+                  <select name="range" required>
+                    <option value="" disabled selected>Select time period</option>
+                    <option value="today">Today</option>
+                    <option value="yesterday">Yesterday</option>
+                    <option value="7d">Last 7 days</option>
+                    <option value="30d">Last 30 days</option>
+                    <option value="90d">Last 3 months</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Report Type *</label>
+                  <select name="type" required>
+                    <option value="" disabled selected>Select report type</option>
+                    <option value="comprehensive">Comprehensive Overview</option>
+                    <option value="appointments">Appointments Summary</option>
+                    <option value="patients">Patient Demographics</option>
+                    <option value="health">Health Statistics</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h4>📋 Report Format</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Format</label>
+                  <select name="format">
+                    <option value="pdf">PDF Document</option>
+                    <option value="excel">Excel Spreadsheet</option>
+                    <option value="csv">CSV Data</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Email Report To</label>
+                  <input type="email" name="emailTo" placeholder="admin@healthcare.gov" />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn btn-outline" data-close-overlay>Cancel</button>
+              <button type="submit" class="btn btn-primary">Generate Report</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="mock-data.js"></script>
+    <script src="healthcentre.js"></script>
+  </body>
+</html>

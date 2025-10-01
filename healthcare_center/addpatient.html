@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Patient Modal Demo</title>
+    <link href="addpatient.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Sample Page Content -->
+    <div class="sample-content" id="pageContent">
+      <div class="header">
+        <h1>Healthcare Dashboard</h1>
+        <p>Patient Management System</p>
+        <br />
+        <button class="action-btn primary" id="addPatientBtn">
+          <span>➕</span>
+          Add New Patient
+        </button>
+      </div>
+
+      <div
+        style="
+          background: white;
+          padding: 20px;
+          border-radius: 12px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        "
+      ></div>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal">
+        <div class="modal-header">
+          <h2>Add New Patient</h2>
+          <p>Enter patient information to create a new medical record</p>
+          <button class="close-btn" id="closeModal">×</button>
+        </div>
+
+        <form class="modal-content" id="patientForm">
+          <div
+            id="successMessage"
+            class="success-message"
+            style="display: none"
+          >
+            Patient record created successfully! 🎉
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                placeholder="Enter first name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                placeholder="Enter last name"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="dateOfBirth">Date of Birth *</label>
+              <input type="date" id="dateOfBirth" name="dateOfBirth" required />
+            </div>
+            <div class="form-group">
+              <label for="gender">Gender *</label>
+              <select id="gender" name="gender" required>
+                <option value="">Select gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="patient@example.com"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <div class="phone-input">
+              <span class="prefix">+91</span>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="XXXXX XXXXX"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="address">Address</label>
+            <textarea
+              id="address"
+              name="address"
+              placeholder="Enter full address"
+            ></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="bloodGroup">Blood Group</label>
+              <select id="bloodGroup" name="bloodGroup">
+                <option value="">Select blood group</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="occupation">Occupation</label>
+              <input
+                type="text"
+                id="occupation"
+                name="occupation"
+                placeholder="e.g., Construction Worker"
+              />
+            </div>
+          </div>
+
+          <div class="emergency-contact">
+            <h3>Emergency Contact Information</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="emergencyName">Contact Name *</label>
+                <input
+                  type="text"
+                  id="emergencyName"
+                  name="emergencyName"
+                  placeholder="Full name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="emergencyRelation">Relationship *</label>
+                <select
+                  id="emergencyRelation"
+                  name="emergencyRelation"
+                  required
+                >
+                  <option value="">Select relationship</option>
+                  <option value="spouse">Spouse</option>
+                  <option value="parent">Parent</option>
+                  <option value="child">Child</option>
+                  <option value="sibling">Sibling</option>
+                  <option value="friend">Friend</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="emergencyPhone">Emergency Contact Phone *</label>
+              <div class="phone-input">
+                <span class="prefix">+91</span>
+                <input
+                  type="tel"
+                  id="emergencyPhone"
+                  name="emergencyPhone"
+                  placeholder="XXXXX XXXXX"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="medicalHistory">Medical History / Allergies</label>
+            <textarea
+              id="medicalHistory"
+              name="medicalHistory"
+              placeholder="Any known medical conditions, allergies, or medications..."
+            ></textarea>
+          </div>
+        </form>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" id="cancelBtn">
+            Cancel
+          </button>
+          <button type="submit" class="btn btn-primary" id="savePatientBtn">
+            <span class="loading" id="loadingSpinner"></span>
+            <span id="saveButtonText">Save Patient</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="addpatient.js"></script>
+  </body>
+</html>

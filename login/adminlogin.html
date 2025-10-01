@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Kerala Migrant Health Records — Admin Login</title>
+<link href="adminlogin.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    
+  <!-- Header -->
+  <header class="site-header" role="banner" aria-label="Site header">
+    <div class="brand" aria-hidden="false">
+      <div class="title-block" role="heading" aria-level="1">
+        <h1>Kerala Migrant Health Records</h1>
+        <p>Admin Portal - Digital Health Management</p>
+      </div>
+    </div>
+
+    <!-- language pill -->
+    <div class="lang-select">
+      <label for="language" class="sr-only">Select Language</label>
+      <select id="language" name="language">
+        <option value="en" selected>English</option>
+        <option value="ml">മലയാളം</option>
+        <option value="hi">हिन्दी</option>
+        <option value="ta">தமிழ்</option>
+        <option value="bn">বাংলা</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- Card -->
+  <main class="card" role="main">
+    <!-- tabs -->
+    <nav class="tabs" role="tablist" aria-label="Login or register" 
+     style="display: flex; justify-content: center;">
+  <h2 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+             font-weight: 600; color: #333; letter-spacing: 0.5px;">
+    Login
+  </h2>
+</nav>
+
+    <section class="form-area">
+      <!-- LOGIN -->
+      <form id="loginPanel" aria-hidden="false" style="display:block;">
+        <div class="heading">
+          <h2>Welcome Back Admin</h2>
+        </div>
+
+        <div class="field">
+          <label for="userId">Admin ID/Admin Username</label>
+          <input id="userId" type="text" placeholder="Enter your Username or Admin userID" />
+        </div>
+
+        <div class="field">
+          <label for="pwd">Password</label>
+          <input id="pwd" type="password" placeholder="Enter your password" />
+        </div>
+
+        <button type="button" class="btn primary" id="loginBtn">Access Admin Dashboard</button>
+
+        <p class="small-note">Secure • Confidential • SDG Compliant</p>
+      </form>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div>Kerala State Health Department</div>
+    <div style="font-size:12px;opacity:.85;margin-top:6px;">Promoting equitable healthcare access for all workers</div>
+  </footer>
+
+<script src="adminlogin.js"></script>
+
+</body>
+</html>

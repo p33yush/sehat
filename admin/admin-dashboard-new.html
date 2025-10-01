@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEHAT - Admin Dashboard</title>
+    <link rel="stylesheet" href="admin-dashboard-new.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Top Header -->
+    <header class="top-header">
+        <div class="header-content">
+            <!-- Logo Section -->
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <img src="../assets/finallogo.png" alt="SEHAT Logo">
+                </div>
+                <div class="logo-text">
+                    <span class="logo-name">SEHAT</span>
+                    <span class="logo-subtitle">Admin Portal</span>
+                </div>
+            </div>
+
+            <!-- Search Section -->
+            <div class="search-section">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search system, users, reports...">
+                </div>
+            </div>
+
+            <!-- Header Actions -->
+            <div class="header-actions">
+                <!-- Language Selector -->
+                <div class="language-selector">
+                    <i class="fas fa-globe"></i>
+                    <select>
+                        <option value="en" selected>English</option>
+                        <option value="hi">हिन्दी</option>
+                        <option value="ml">മലയാളം</option>
+                        <option value="bn">বাংলা</option>
+                    </select>
+                </div>
+
+                <!-- Notifications -->
+                <div class="notification-badge" id="notificationTrigger">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge-count" id="notificationCount">8</span>
+                </div>
+
+                <!-- User Profile -->
+                <div class="user-profile" id="userProfileTrigger">
+                    <div class="profile-avatar">
+                        <img src="../assets/hospital_img.jpg" alt="Admin">
+                    </div>
+                    <div class="profile-info">
+                        <span class="profile-name">System Administrator</span>
+                        <span class="profile-role">Admin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <nav class="sidebar-nav">
+                <!-- Dashboard -->
+                <div class="nav-section">
+                    <div class="nav-item active" data-page="dashboard">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </div>
+                </div>
+
+                <!-- System Management -->
+                <div class="nav-section">
+                    <div class="nav-header">SYSTEM MANAGEMENT</div>
+                    <div class="nav-item" data-page="system-overview">
+                        <i class="fas fa-chart-line"></i>
+                        <span>System Overview</span>
+                    </div>
+                    <div class="nav-item" data-page="user-management">
+                        <i class="fas fa-users-cog"></i>
+                        <span>User Management</span>
+                    </div>
+                    <div class="nav-item" data-page="system-settings">
+                        <i class="fas fa-cog"></i>
+                        <span>System Settings</span>
+                    </div>
+                </div>
+
+                <!-- Health Centers -->
+                <div class="nav-section">
+                    <div class="nav-header">HEALTH CENTERS</div>
+                    <div class="nav-item" data-page="health-centers">
+                        <i class="fas fa-hospital"></i>
+                        <span>All Health Centers</span>
+                    </div>
+                    <div class="nav-item" data-page="center-reports">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Center Reports</span>
+                    </div>
+                    <div class="nav-item" data-page="center-performance">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Performance Metrics</span>
+                    </div>
+                </div>
+
+                <!-- Migrant Workers -->
+                <div class="nav-section">
+                    <div class="nav-header">MIGRANT WORKERS</div>
+                    <div class="nav-item" data-page="worker-statistics">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Worker Statistics</span>
+                    </div>
+                    <div class="nav-item" data-page="worker-reports">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Worker Reports</span>
+                    </div>
+                    <div class="nav-item" data-page="health-screening">
+                        <i class="fas fa-stethoscope"></i>
+                        <span>Health Screening</span>
+                    </div>
+                </div>
+
+                <!-- Reports & Analytics -->
+                <div class="nav-section">
+                    <div class="nav-header">REPORTS & ANALYTICS</div>
+                    <div class="nav-item" data-page="comprehensive-reports">
+                        <i class="fas fa-file-medical"></i>
+                        <span>Comprehensive Reports</span>
+                    </div>
+                    <div class="nav-item" data-page="data-analytics">
+                        <i class="fas fa-analytics"></i>
+                        <span>Data Analytics</span>
+                    </div>
+                    <div class="nav-item" data-page="export-data">
+                        <i class="fas fa-download"></i>
+                        <span>Export Data</span>
+                    </div>
+                </div>
+
+                <!-- Administration -->
+                <div class="nav-section">
+                    <div class="nav-header">ADMINISTRATION</div>
+                    <div class="nav-item" data-page="audit-logs">
+                        <i class="fas fa-clipboard-list"></i>
+                        <span>Audit Logs</span>
+                    </div>
+                    <div class="nav-item" data-page="backup-restore">
+                        <i class="fas fa-database"></i>
+                        <span>Backup & Restore</span>
+                    </div>
+                    <div class="nav-item" data-page="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Dashboard Page -->
+            <div class="page-content active" id="dashboard-page">
+                <!-- Hero Section -->
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1>System <span class="highlight">Administration</span> Dashboard</h1>
+                            <p>Comprehensive management system for Kerala's migrant worker healthcare program</p>
+                        </div>
+                        <div class="hero-visual">
+                            <div class="hero-icon">
+                                <img src="../assets/hospital_img.jpg" alt="Hospital Building" class="hospital-image" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="stat-number">89</div>
+                            <div class="stat-label">Health Centers</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="stat-number">12,456</div>
+                            <div class="stat-label">Registered Workers</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="stat-number">78.5%</div>
+                            <div class="stat-label">Vaccination Coverage</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number">89</div>
+                            <div class="stat-label">Active Health Centers</div>
+                            <div class="stat-change positive">+3 this month</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number">12,456</div>
+                            <div class="stat-label">Total Workers</div>
+                            <div class="stat-change positive">+156 this week</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number">8,234</div>
+                            <div class="stat-label">Health Screenings</div>
+                            <div class="stat-change positive">+89 today</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-shield-virus"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number">78.5%</div>
+                            <div class="stat-label">Vaccination Rate</div>
+                            <div class="stat-change positive">+2.1% this month</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dashboard Widgets -->
+                <div class="dashboard-widgets">
+                    <div class="widget-row">
+                        <div class="widget-card large">
+                            <div class="widget-header">
+                                <h3>System Overview</h3>
+                                <div class="widget-actions">
+                                    <button class="btn btn-sm btn-outline">View Details</button>
+                                </div>
+                            </div>
+                            <div class="widget-content">
+                                <div class="overview-stats">
+                                    <div class="overview-item">
+                                        <span class="label">System Uptime</span>
+                                        <span class="value">99.8%</span>
+                                    </div>
+                                    <div class="overview-item">
+                                        <span class="label">Active Users</span>
+                                        <span class="value">156</span>
+                                    </div>
+                                    <div class="overview-item">
+                                        <span class="label">Data Storage</span>
+                                        <span class="value">2.4 TB</span>
+                                    </div>
+                                    <div class="overview-item">
+                                        <span class="label">Last Backup</span>
+                                        <span class="value">2 hours ago</span>
+                                    </div>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="systemOverviewChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="widget-card">
+                            <div class="widget-header">
+                                <h3>Recent Activities</h3>
+                            </div>
+                            <div class="widget-content">
+                                <div class="activity-list">
+                                    <div class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-user-plus"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-title">New Health Center Added</div>
+                                            <div class="activity-time">2 minutes ago</div>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-file-medical"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-title">Health Report Generated</div>
+                                            <div class="activity-time">15 minutes ago</div>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-title">25 Workers Registered</div>
+                                            <div class="activity-time">1 hour ago</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="widget-row">
+                        <div class="widget-card">
+                            <div class="widget-header">
+                                <h3>Health Center Status</h3>
+                            </div>
+                            <div class="widget-content">
+                                <div class="status-list">
+                                    <div class="status-item">
+                                        <div class="status-indicator online"></div>
+                                        <span class="status-name">Kochi Health Center</span>
+                                        <span class="status-value">Online</span>
+                                    </div>
+                                    <div class="status-item">
+                                        <div class="status-indicator online"></div>
+                                        <span class="status-name">Thrissur Health Center</span>
+                                        <span class="status-value">Online</span>
+                                    </div>
+                                    <div class="status-item">
+                                        <div class="status-indicator warning"></div>
+                                        <span class="status-name">Kozhikode Health Center</span>
+                                        <span class="status-value">Maintenance</span>
+                                    </div>
+                                </div>
+                                <div class="chart-container small">
+                                    <canvas id="healthCenterStatusChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="widget-card">
+                            <div class="widget-header">
+                                <h3>Quick Actions</h3>
+                            </div>
+                            <div class="widget-content">
+                                <div class="action-buttons">
+                                    <button class="action-btn" onclick="openAddHealthCenterModal()">
+                                        <i class="fas fa-plus"></i>
+                                        <span>Add Health Center</span>
+                                    </button>
+                                    <button class="action-btn" onclick="openGenerateReportModal()">
+                                        <i class="fas fa-file-export"></i>
+                                        <span>Generate Report</span>
+                                    </button>
+                                    <button class="action-btn" onclick="openExportDataModal()">
+                                        <i class="fas fa-download"></i>
+                                        <span>Export Data</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Pages (Hidden by default) -->
+            <div class="page-content" id="system-overview-page">
+                <div class="page-header">
+                    <h2>System Overview</h2>
+                    <p>Monitor system performance and health metrics</p>
+                </div>
+                <div class="page-content-body">
+                    <div class="overview-grid">
+                        <div class="overview-card">
+                            <div class="card-header">
+                                <h3>System Performance</h3>
+                                <span class="status-indicator online"></span>
+                            </div>
+                            <div class="card-content">
+                                <div class="metric">
+                                    <span class="metric-label">CPU Usage</span>
+                                    <span class="metric-value">45%</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Memory Usage</span>
+                                    <span class="metric-value">2.1 GB / 8 GB</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Disk Usage</span>
+                                    <span class="metric-value">156 GB / 500 GB</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Network I/O</span>
+                                    <span class="metric-value">125 MB/s</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="overview-card">
+                            <div class="card-header">
+                                <h3>Database Status</h3>
+                                <span class="status-indicator online"></span>
+                            </div>
+                            <div class="card-content">
+                                <div class="metric">
+                                    <span class="metric-label">Active Connections</span>
+                                    <span class="metric-value">23</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Query Response Time</span>
+                                    <span class="metric-value">45ms</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Database Size</span>
+                                    <span class="metric-value">2.4 TB</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Last Backup</span>
+                                    <span class="metric-value">2 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="overview-card">
+                            <div class="card-header">
+                                <h3>System Uptime</h3>
+                                <span class="status-indicator online"></span>
+                            </div>
+                            <div class="card-content">
+                                <div class="uptime-display">
+                                    <div class="uptime-value">99.8%</div>
+                                    <div class="uptime-period">Last 30 days</div>
+                                </div>
+                                <div class="uptime-details">
+                                    <div class="detail-item">
+                                        <span>Current Uptime</span>
+                                        <span>15 days, 4 hours</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span>Last Downtime</span>
+                                        <span>Dec 1, 2024 (2 min)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- System Alerts and Notifications -->
+                    <div class="alerts-section">
+                        <h3><i class="fas fa-exclamation-triangle"></i> System Alerts</h3>
+                        <div class="alerts-grid">
+                            <div class="alert-card warning">
+                                <div class="alert-icon">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="alert-content">
+                                    <h4>High Memory Usage</h4>
+                                    <p>Memory usage has reached 85%. Consider optimizing or adding more RAM.</p>
+                                    <span class="alert-time">2 hours ago</span>
+                                </div>
+                                <button class="btn btn-sm btn-outline">Dismiss</button>
+                            </div>
+                            
+                            <div class="alert-card info">
+                                <div class="alert-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                                <div class="alert-content">
+                                    <h4>Database Backup Completed</h4>
+                                    <p>Daily backup completed successfully. 2.4 GB of data backed up.</p>
+                                    <span class="alert-time">4 hours ago</span>
+                                </div>
+                                <button class="btn btn-sm btn-outline">View Details</button>
+                            </div>
+                            
+                            <div class="alert-card success">
+                                <div class="alert-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="alert-content">
+                                    <h4>Security Scan Completed</h4>
+                                    <p>No security vulnerabilities found. System is secure.</p>
+                                    <span class="alert-time">6 hours ago</span>
+                                </div>
+                                <button class="btn btn-sm btn-outline">View Report</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Real-time System Metrics -->
+                    <div class="metrics-section">
+                        <h3><i class="fas fa-chart-area"></i> Real-time System Metrics</h3>
+                        <div class="metrics-grid">
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <h4>Server Load</h4>
+                                    <span class="metric-trend up">↗ +5%</span>
+                                </div>
+                                <div class="metric-chart">
+                                    <div class="chart-placeholder">
+                                        <i class="fas fa-chart-line"></i>
+                                        <p>Load: 0.75 (Normal)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <h4>Network Traffic</h4>
+                                    <span class="metric-trend down">↘ -2%</span>
+                                </div>
+                                <div class="metric-chart">
+                                    <div class="chart-placeholder">
+                                        <i class="fas fa-network-wired"></i>
+                                        <p>In: 45 MB/s | Out: 32 MB/s</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <h4>Active Users</h4>
+                                    <span class="metric-trend up">↗ +12%</span>
+                                </div>
+                                <div class="metric-chart">
+                                    <div class="chart-placeholder">
+                                        <i class="fas fa-users"></i>
+                                        <p>Online: 1,247 users</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-content" id="user-management-page">
+                <div class="page-header">
+                    <h2>User Management</h2>
+                    <p>Manage system users and permissions</p>
+                </div>
+                <div class="page-content-body">
+                    <div class="user-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">156</div>
+                            <div class="stat-label">Total Users</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">89</div>
+                            <div class="stat-label">Active Today</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">New This Week</div>
+                        </div>
+                    </div>
+
+                    <div class="user-table-container">
+                        <div class="table-header">
+                            <h3>System Users</h3>
+                            <button class="btn btn-primary">Add User</button>
+                        </div>
+                        <table class="user-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Last Login</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Dr. Sarah Johnson</td>
+                                    <td>sarah.johnson@sehat.gov</td>
+                                    <td>System Admin</td>
+                                    <td><span class="status-badge active">Active</span></td>
+                                    <td>2 hours ago</td>
+                                    <td><button class="btn btn-sm btn-outline">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Dr. Rajesh Kumar</td>
+                                    <td>rajesh.kumar@sehat.gov</td>
+                                    <td>Health Center Admin</td>
+                                    <td><span class="status-badge active">Active</span></td>
+                                    <td>1 day ago</td>
+                                    <td><button class="btn btn-sm btn-outline">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Nurse Priya Sharma</td>
+                                    <td>priya.sharma@sehat.gov</td>
+                                    <td>Medical Staff</td>
+                                    <td><span class="status-badge active">Active</span></td>
+                                    <td>3 hours ago</td>
+                                    <td><button class="btn btn-sm btn-outline">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Dr. Michael Chen</td>
+                                    <td>michael.chen@sehat.gov</td>
+                                    <td>Health Center Admin</td>
+                                    <td><span class="status-badge inactive">Inactive</span></td>
+                                    <td>1 week ago</td>
+                                    <td><button class="btn btn-sm btn-outline">Edit</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Enhanced User Management Features -->
+                    <div class="user-management-features">
+                        <div class="feature-section">
+                            <h3><i class="fas fa-users-cog"></i> User Management Tools</h3>
+                            <div class="feature-grid">
+                                <div class="feature-card">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-user-plus"></i>
+                                    </div>
+                                    <div class="feature-content">
+                                        <h4>Bulk User Operations</h4>
+                                        <p>Add multiple users at once, import from CSV, or export user data</p>
+                                        <button class="btn btn-outline">Manage Bulk Operations</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="feature-card">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div class="feature-content">
+                                        <h4>Role & Permission Management</h4>
+                                        <p>Configure user roles, permissions, and access levels</p>
+                                        <button class="btn btn-outline">Manage Roles</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="feature-card">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div class="feature-content">
+                                        <h4>User Activity Analytics</h4>
+                                        <p>Track user login patterns, activity levels, and engagement</p>
+                                        <button class="btn btn-outline">View Analytics</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="feature-card">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-key"></i>
+                                    </div>
+                                    <div class="feature-content">
+                                        <h4>Security & Access Control</h4>
+                                        <p>Manage password policies, two-factor authentication, and security settings</p>
+                                        <button class="btn btn-outline">Security Settings</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- User Activity Log -->
+                        <div class="activity-log-section">
+                            <h3><i class="fas fa-history"></i> Recent User Activity</h3>
+                            <div class="activity-log">
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-user-plus"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <h4>New User Registration</h4>
+                                        <p>Dr. Priya Sharma registered as Health Center Admin</p>
+                                        <span class="activity-time">2 hours ago</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-edit"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <h4>Profile Updated</h4>
+                                        <p>Rajesh Kumar updated his profile information</p>
+                                        <span class="activity-time">4 hours ago</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-lock"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <h4>Password Changed</h4>
+                                        <p>Sarah Johnson changed her password</p>
+                                        <span class="activity-time">6 hours ago</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-sign-in-alt"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <h4>User Login</h4>
+                                        <p>Admin User logged in from new device</p>
+                                        <span class="activity-time">8 hours ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-content" id="system-settings-page">
+                <div class="page-header">
+                    <h2>System Settings</h2>
+                    <p>Configure system parameters and preferences</p>
+                </div>
+                <div class="page-content-body">
+                    <!-- System Configuration Tabs -->
+                    <div class="settings-tabs">
+                        <button class="tab-btn active" data-tab="general">General</button>
+                        <button class="tab-btn" data-tab="security">Security</button>
+                        <button class="tab-btn" data-tab="notifications">Notifications</button>
+                        <button class="tab-btn" data-tab="backup">Backup</button>
+                        <button class="tab-btn" data-tab="api">API Settings</button>
+                    </div>
+
+                    <!-- General Settings -->
+                    <div class="settings-content active" id="general-settings">
+                        <h3><i class="fas fa-cog"></i> General System Settings</h3>
+                        <div class="settings-grid">
+                            <div class="setting-group">
+                                <label>System Name</label>
+                                <input type="text" value="Kerala Health Records System" class="form-input">
+                            </div>
+                            <div class="setting-group">
+                                <label>System Version</label>
+                                <input type="text" value="v2.1.0" class="form-input" readonly>
+                            </div>
+                            <div class="setting-group">
+                                <label>Default Language</label>
+                                <select class="form-select">
+                                    <option value="en">English</option>
+                                    <option value="ml">മലയാളം</option>
+                                    <option value="hi">हिन्दी</option>
+                                    <option value="ta">தமிழ்</option>
+                                </select>
+                            </div>
+                            <div class="setting-group">
+                                <label>Time Zone</label>
+                                <select class="form-select">
+                                    <option value="Asia/Kolkata">Asia/Kolkata (IST)</option>
+                                    <option value="UTC">UTC</option>
+                                </select>
+                            </div>
+                            <div class="setting-group">
+                                <label>Maintenance Mode</label>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="maintenanceMode">
+                                    <label for="maintenanceMode"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security Settings -->
+                    <div class="settings-content" id="security-settings">
+                        <h3><i class="fas fa-shield-alt"></i> Security Settings</h3>
+                        <div class="settings-grid">
+                            <div class="setting-group">
+                                <label>Password Policy</label>
+                                <div class="setting-options">
+                                    <div class="option-item">
+                                        <label>Minimum Password Length</label>
+                                        <input type="number" value="8" min="6" max="20" class="form-input">
+                                    </div>
+                                    <div class="option-item">
+                                        <label>Require Special Characters</label>
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="requireSpecialChars" checked>
+                                            <label for="requireSpecialChars"></label>
+                                        </div>
+                                    </div>
+                                    <div class="option-item">
+                                        <label>Password Expiry (days)</label>
+                                        <input type="number" value="90" min="30" max="365" class="form-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="setting-group">
+                                <label>Two-Factor Authentication</label>
+                                <div class="setting-options">
+                                    <div class="option-item">
+                                        <label>Enable 2FA for Admins</label>
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="admin2FA" checked>
+                                            <label for="admin2FA"></label>
+                                        </div>
+                                    </div>
+                                    <div class="option-item">
+                                        <label>Enable 2FA for Health Centers</label>
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="healthcare2FA">
+                                            <label for="healthcare2FA"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="setting-group">
+                                <label>Session Management</label>
+                                <div class="setting-options">
+                                    <div class="option-item">
+                                        <label>Session Timeout (minutes)</label>
+                                        <input type="number" value="30" min="5" max="480" class="form-input">
+                                    </div>
+                                    <div class="option-item">
+                                        <label>Max Concurrent Sessions</label>
+                                        <input type="number" value="3" min="1" max="10" class="form-input">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notification Settings -->
+                    <div class="settings-content" id="notifications-settings">
+                        <h3><i class="fas fa-bell"></i> Notification Settings</h3>
+                        <div class="settings-grid">
+                            <div class="setting-group">
+                                <label>Email Notifications</label>
+                                <div class="setting-options">
+                                    <div class="option-item">
+                                        <label>System Alerts</label>
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="systemAlerts" checked>
+                                            <label for="systemAlerts"></label>
+                                        </div>
+                                    </div>
+                                    <div class="option-item">
+                                        <label>User Registration</label>
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="userRegistration" checked>
+                                            <label for="userRegistration"></label>
+                                        </div>
+                                    </div>
+                                    <div class="option-item">
+                                        <label>Security Events</label>
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="securityEvents" checked>
+                                            <label for="securityEvents"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="setting-group">
+                                <label>SMTP Configuration</label>
+                                <div class="setting-options">
+                                    <div class="option-item">
+                                        <label>SMTP Server</label>
+                                        <input type="text" value="smtp.gmail.com" class="form-input">
+                                    </div>
+                                    <div class="option-item">
+                                        <label>SMTP Port</label>
+                                        <input type="number" value="587" class="form-input">
+                                    </div>
+                                    <div class="option-item">
+                                        <label>From Email</label>
+                                        <input type="email" value="noreply@sehat.gov.in" class="form-input">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Backup Settings -->
+                    <div class="settings-content" id="backup-settings">
+                        <h3><i class="fas fa-database"></i> Backup & Recovery Settings</h3>
+                        <div class="settings-grid">
+                            <div class="setting-group">
+                                <label>Automatic Backups</label>
+                                <div class="setting-options">
+                                    <div class="option-item">
+                                        <label>Enable Daily Backups</label>
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="dailyBackups" checked>
+                                            <label for="dailyBackups"></label>
+                                        </div>
+                                    </div>
+                                    <div class="option-item">
+                                        <label>Backup Time</label>
+                                        <input type="time" value="02:00" class="form-input">
+                                    </div>
+                                    <div class="option-item">
+                                        <label>Retention Period (days)</label>
+                                        <input type="number" value="30" min="7" max="365" class="form-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="setting-group">
+                                <label>Backup Storage</label>
+                                <div class="setting-options">
+                                    <div class="option-item">
+                                        <label>Local Storage Path</label>
+                                        <input type="text" value="/backups/" class="form-input">
+                                    </div>
+                                    <div class="option-item">
+                                        <label>Cloud Backup</label>
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="cloudBackup">
+                                            <label for="cloudBackup"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- API Settings -->
+                    <div class="settings-content" id="api-settings">
+                        <h3><i class="fas fa-code"></i> API Configuration</h3>
+                        <div class="settings-grid">
+                            <div class="setting-group">
+                                <label>API Rate Limiting</label>
+                                <div class="setting-options">
+                                    <div class="option-item">
+                                        <label>Requests per minute</label>
+                                        <input type="number" value="100" min="10" max="1000" class="form-input">
+                                    </div>
+                                    <div class="option-item">
+                                        <label>Burst limit</label>
+                                        <input type="number" value="200" min="20" max="2000" class="form-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="setting-group">
+                                <label>CORS Settings</label>
+                                <div class="setting-options">
+                                    <div class="option-item">
+                                        <label>Allowed Origins</label>
+                                        <textarea class="form-textarea" placeholder="https://sehat.gov.in&#10;https://admin.sehat.gov.in"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Save Settings Button -->
+                    <div class="settings-actions">
+                        <button class="btn btn-primary" onclick="saveSettings()">
+                            <i class="fas fa-save"></i> Save Settings
+                        </button>
+                        <button class="btn btn-outline" onclick="resetSettings()">
+                            <i class="fas fa-undo"></i> Reset to Defaults
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-content" id="health-centers-page">
+                <div class="page-header">
+                    <h2>Health Centers</h2>
+                    <p>Manage all health centers in the system</p>
+                </div>
+                <div class="page-content-body">
+                    <div class="centers-grid">
+                        <div class="center-card">
+                            <div class="center-header">
+                                <h3>Kochi Health Center</h3>
+                                <span class="status-indicator online"></span>
+                            </div>
+                            <div class="center-info">
+                                <div class="info-item">
+                                    <span class="label">Location:</span>
+                                    <span class="value">Kochi, Kerala</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Staff:</span>
+                                    <span class="value">25 Medical Staff</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Patients Today:</span>
+                                    <span class="value">156</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Last Updated:</span>
+                                    <span class="value">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="center-actions">
+                                <button class="btn btn-sm btn-outline">View Details</button>
+                                <button class="btn btn-sm btn-primary">Edit</button>
+                            </div>
+                        </div>
+
+                        <div class="center-card">
+                            <div class="center-header">
+                                <h3>Thrissur Health Center</h3>
+                                <span class="status-indicator online"></span>
+                            </div>
+                            <div class="center-info">
+                                <div class="info-item">
+                                    <span class="label">Location:</span>
+                                    <span class="value">Thrissur, Kerala</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Staff:</span>
+                                    <span class="value">18 Medical Staff</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Patients Today:</span>
+                                    <span class="value">89</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Last Updated:</span>
+                                    <span class="value">1 hour ago</span>
+                                </div>
+                            </div>
+                            <div class="center-actions">
+                                <button class="btn btn-sm btn-outline">View Details</button>
+                                <button class="btn btn-sm btn-primary">Edit</button>
+                            </div>
+                        </div>
+
+                        <div class="center-card">
+                            <div class="center-header">
+                                <h3>Kozhikode Health Center</h3>
+                                <span class="status-indicator warning"></span>
+                            </div>
+                            <div class="center-info">
+                                <div class="info-item">
+                                    <span class="label">Location:</span>
+                                    <span class="value">Kozhikode, Kerala</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Staff:</span>
+                                    <span class="value">22 Medical Staff</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Patients Today:</span>
+                                    <span class="value">134</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Last Updated:</span>
+                                    <span class="value">Maintenance</span>
+                                </div>
+                            </div>
+                            <div class="center-actions">
+                                <button class="btn btn-sm btn-outline">View Details</button>
+                                <button class="btn btn-sm btn-primary">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-content" id="center-reports-page">
+                <div class="page-header">
+                    <h2>Center Reports</h2>
+                    <p>View and generate reports for health centers</p>
+                </div>
+                <div class="page-content-body">
+                    <p>Center reports content will be implemented here...</p>
+                </div>
+            </div>
+
+            <div class="page-content" id="center-performance-page">
+                <div class="page-header">
+                    <h2>Center Performance</h2>
+                    <p>Monitor performance metrics for health centers</p>
+                </div>
+                <div class="page-content-body">
+                    <p>Center performance content will be implemented here...</p>
+                </div>
+            </div>
+
+            <div class="page-content" id="worker-statistics-page">
+                <div class="page-header">
+                    <h2>Worker Statistics</h2>
+                    <p>View comprehensive statistics about migrant workers</p>
+                </div>
+                <div class="page-content-body">
+                    <p>Worker statistics content will be implemented here...</p>
+                </div>
+            </div>
+
+            <div class="page-content" id="worker-reports-page">
+                <div class="page-header">
+                    <h2>Worker Reports</h2>
+                    <p>Generate and view reports about migrant workers</p>
+                </div>
+                <div class="page-content-body">
+                    <p>Worker reports content will be implemented here...</p>
+                </div>
+            </div>
+
+            <div class="page-content" id="health-screening-page">
+                <div class="page-header">
+                    <h2>Health Screening</h2>
+                    <p>Manage health screening processes and results</p>
+                </div>
+                <div class="page-content-body">
+                    <p>Health screening content will be implemented here...</p>
+                </div>
+            </div>
+
+            <div class="page-content" id="comprehensive-reports-page">
+                <div class="page-header">
+                    <h2>Comprehensive Reports</h2>
+                    <p>Generate comprehensive system reports</p>
+                </div>
+                <div class="page-content-body">
+                    <p>Comprehensive reports content will be implemented here...</p>
+                </div>
+            </div>
+
+            <div class="page-content" id="data-analytics-page">
+                <div class="page-header">
+                    <h2>Data Analytics</h2>
+                    <p>Advanced analytics and data insights</p>
+                </div>
+                <div class="page-content-body">
+                    <!-- Analytics Overview Cards -->
+                    <div class="analytics-overview">
+                        <div class="analytics-card">
+                            <div class="card-header">
+                                <h3>User Growth</h3>
+                                <span class="trend-indicator positive">+12.5%</span>
+                            </div>
+                            <div class="card-content">
+                                <div class="chart-container">
+                                    <canvas id="userGrowthChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="analytics-card">
+                            <div class="card-header">
+                                <h3>Healthcare Centers Distribution</h3>
+                                <span class="trend-indicator neutral">Stable</span>
+                            </div>
+                            <div class="card-content">
+                                <div class="chart-container">
+                                    <canvas id="healthcareDistributionChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="analytics-card">
+                            <div class="card-header">
+                                <h3>Worker Health Status</h3>
+                                <span class="trend-indicator positive">+8.2%</span>
+                            </div>
+                            <div class="card-content">
+                                <div class="chart-container">
+                                    <canvas id="workerHealthChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="analytics-card">
+                            <div class="card-header">
+                                <h3>System Performance</h3>
+                                <span class="trend-indicator positive">+5.1%</span>
+                            </div>
+                            <div class="card-content">
+                                <div class="chart-container">
+                                    <canvas id="systemPerformanceChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Analytics Section -->
+                    <div class="detailed-analytics">
+                        <div class="analytics-section">
+                            <div class="section-header">
+                                <h3>Monthly Registration Trends</h3>
+                                <div class="chart-controls">
+                                    <select id="timeRange">
+                                        <option value="6months">Last 6 Months</option>
+                                        <option value="1year">Last Year</option>
+                                        <option value="2years">Last 2 Years</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="chart-container large">
+                                <canvas id="registrationTrendsChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="analytics-section">
+                            <div class="section-header">
+                                <h3>Geographic Distribution</h3>
+                                <div class="chart-controls">
+                                    <button class="btn btn-sm btn-outline" onclick="exportChart('geographic')">Export</button>
+                                </div>
+                            </div>
+                            <div class="chart-container large">
+                                <canvas id="geographicDistributionChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="analytics-section">
+                            <div class="section-header">
+                                <h3>Health Records by Type</h3>
+                                <div class="chart-controls">
+                                    <button class="btn btn-sm btn-outline" onclick="exportChart('healthRecords')">Export</button>
+                                </div>
+                            </div>
+                            <div class="chart-container medium">
+                                <canvas id="healthRecordsChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="analytics-section">
+                            <div class="section-header">
+                                <h3>Appointment Statistics</h3>
+                                <div class="chart-controls">
+                                    <button class="btn btn-sm btn-outline" onclick="exportChart('appointments')">Export</button>
+                                </div>
+                            </div>
+                            <div class="chart-container medium">
+                                <canvas id="appointmentStatsChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Real-time Analytics -->
+                    <div class="realtime-analytics">
+                        <div class="analytics-section">
+                            <div class="section-header">
+                                <h3>Real-time System Metrics</h3>
+                                <div class="chart-controls">
+                                    <span class="live-indicator">● LIVE</span>
+                                </div>
+                            </div>
+                            <div class="metrics-grid">
+                                <div class="metric-card">
+                                    <div class="metric-title">CPU Usage</div>
+                                    <div class="metric-value">45%</div>
+                                    <div class="metric-chart">
+                                        <canvas id="cpuUsageChart"></canvas>
+                                    </div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-title">Memory Usage</div>
+                                    <div class="metric-value">68%</div>
+                                    <div class="metric-chart">
+                                        <canvas id="memoryUsageChart"></canvas>
+                                    </div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-title">Database Connections</div>
+                                    <div class="metric-value">23</div>
+                                    <div class="metric-chart">
+                                        <canvas id="dbConnectionsChart"></canvas>
+                                    </div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-title">API Response Time</div>
+                                    <div class="metric-value">120ms</div>
+                                    <div class="metric-chart">
+                                        <canvas id="apiResponseChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-content" id="export-data-page">
+                <div class="page-header">
+                    <h2>Export Data</h2>
+                    <p>Export system data in various formats</p>
+                </div>
+                <div class="page-content-body">
+                    <p>Export data content will be implemented here...</p>
+                </div>
+            </div>
+
+            <div class="page-content" id="audit-logs-page">
+                <div class="page-header">
+                    <h2>Audit Logs</h2>
+                    <p>View system audit logs and activity history</p>
+                </div>
+                <div class="page-content-body">
+                    <p>Audit logs content will be implemented here...</p>
+                </div>
+            </div>
+
+            <div class="page-content" id="backup-restore-page">
+                <div class="page-header">
+                    <h2>Backup & Restore</h2>
+                    <p>Manage system backups and restore operations</p>
+                </div>
+                <div class="page-content-body">
+                    <p>Backup and restore content will be implemented here...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Enhanced Notification Modal -->
+    <div id="notificationModal" class="modal" style="display: none">
+        <div class="modal-content notification-modal">
+            <div class="modal-header">
+                <div class="header-content">
+                    <i class="fas fa-bell"></i>
+                    <h3>Notifications</h3>
+                    <span class="notification-count-badge" id="modalNotificationCount">8</span>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-sm btn-outline" id="markAllReadBtn">
+                        <i class="fas fa-check-double"></i> Mark All Read
+                    </button>
+                    <button class="modal-close" data-close-modal>&times;</button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="notification-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="urgent">Urgent</button>
+                    <button class="filter-btn" data-filter="success">Success</button>
+                    <button class="filter-btn" data-filter="info">Info</button>
+                </div>
+                <div id="notificationList" class="notification-list"></div>
+                <div class="notification-footer">
+                    <button class="btn btn-outline btn-sm" id="clearAllBtn">
+                        <i class="fas fa-trash"></i> Clear All
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Profile Modal -->
+    <div class="modal" id="userProfileModal" style="display: none">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>User Profile</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="profile-info">
+                    <div class="profile-avatar-large">
+                        <img src="../assets/hospital_img.jpg" alt="Admin">
+                    </div>
+                    <div class="profile-details">
+                        <h4>System Administrator</h4>
+                        <p>admin@sehat.gov.in</p>
+                        <p>Last login: 2 hours ago</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Action Modals -->
+    <!-- Add Health Center Modal -->
+    <div id="addHealthCenterModal" class="modal" style="display: none">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-hospital"></i> Add New Health Center</h3>
+                <button class="modal-close" onclick="closeModal('addHealthCenterModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addHealthCenterForm">
+                    <div class="form-section">
+                        <h4>Basic Information</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Center Name *</label>
+                                <input type="text" name="centerName" placeholder="Enter health center name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Center Type *</label>
+                                <select name="centerType" required>
+                                    <option value="">Select type</option>
+                                    <option value="primary">Primary Health Center</option>
+                                    <option value="community">Community Health Center</option>
+                                    <option value="district">District Hospital</option>
+                                    <option value="specialty">Specialty Clinic</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Address *</label>
+                                <textarea name="address" placeholder="Enter full address" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Pincode *</label>
+                                <input type="text" name="pincode" placeholder="Enter pincode" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h4>Contact Information</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Phone Number *</label>
+                                <input type="tel" name="phone" placeholder="Enter phone number" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address *</label>
+                                <input type="email" name="email" placeholder="Enter email address" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Contact Person *</label>
+                                <input type="text" name="contactPerson" placeholder="Enter contact person name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>License Number *</label>
+                                <input type="text" name="licenseNumber" placeholder="Enter license number" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h4>Services Offered</h4>
+                        <div class="form-group">
+                            <label>Select Services</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="services" value="general"> General Medicine
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="services" value="vaccination"> Vaccination
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="services" value="screening"> Health Screening
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="services" value="emergency"> Emergency Care
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="services" value="lab"> Laboratory Services
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('addHealthCenterModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="submitHealthCenterForm()">
+                    <i class="fas fa-plus"></i> Add Health Center
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Generate Report Modal -->
+    <div id="generateReportModal" class="modal" style="display: none">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-file-export"></i> Generate Report</h3>
+                <button class="modal-close" onclick="closeModal('generateReportModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="generateReportForm">
+                    <div class="form-section">
+                        <h4>Report Configuration</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Report Type *</label>
+                                <select name="reportType" required>
+                                    <option value="">Select report type</option>
+                                    <option value="health-centers">Health Centers Report</option>
+                                    <option value="workers">Workers Statistics</option>
+                                    <option value="screenings">Health Screenings</option>
+                                    <option value="vaccinations">Vaccination Coverage</option>
+                                    <option value="system">System Performance</option>
+                                    <option value="comprehensive">Comprehensive Report</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Format *</label>
+                                <select name="format" required>
+                                    <option value="">Select format</option>
+                                    <option value="pdf">PDF</option>
+                                    <option value="excel">Excel</option>
+                                    <option value="csv">CSV</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Date Range *</label>
+                                <div class="date-range">
+                                    <input type="date" name="startDate" required>
+                                    <span>to</span>
+                                    <input type="date" name="endDate" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Include Charts</label>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="includeCharts" checked>
+                                    <label for="includeCharts"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h4>Report Options</h4>
+                        <div class="form-group">
+                            <label>Additional Filters</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="filters" value="active-only"> Active Centers Only
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="filters" value="include-details"> Include Detailed Information
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="filters" value="summary"> Executive Summary
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('generateReportModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="generateReport()">
+                    <i class="fas fa-file-export"></i> Generate Report
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Export Data Modal -->
+    <div id="exportDataModal" class="modal" style="display: none">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-download"></i> Export Data</h3>
+                <button class="modal-close" onclick="closeModal('exportDataModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="exportDataForm">
+                    <div class="form-section">
+                        <h4>Data Selection</h4>
+                        <div class="form-group">
+                            <label>Data Type *</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="dataType" value="health-centers"> Health Centers Data
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="dataType" value="workers"> Workers Data
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="dataType" value="screenings"> Health Screenings
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="dataType" value="vaccinations"> Vaccination Records
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="dataType" value="users"> User Data
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="dataType" value="system"> System Logs
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Export Format *</label>
+                                <select name="exportFormat" required>
+                                    <option value="">Select format</option>
+                                    <option value="csv">CSV</option>
+                                    <option value="excel">Excel</option>
+                                    <option value="json">JSON</option>
+                                    <option value="xml">XML</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Date Range</label>
+                                <div class="date-range">
+                                    <input type="date" name="exportStartDate">
+                                    <span>to</span>
+                                    <input type="date" name="exportEndDate">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h4>Export Options</h4>
+                        <div class="form-group">
+                            <label>Include Sensitive Data</label>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="includeSensitive">
+                                <label for="includeSensitive"></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Export</label>
+                            <input type="email" name="emailExport" placeholder="Enter email for export delivery">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('exportDataModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="exportData()">
+                    <i class="fas fa-download"></i> Export Data
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="admin-dashboard-new.js"></script>
+</body>
+</html>
